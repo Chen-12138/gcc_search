@@ -1,66 +1,38 @@
 <template>
-<div>
-<!-- <mt-tab-container v-model="selected" swipeable>
-  <mt-tab-container-item id="外卖">
-    123
-  </mt-tab-container-item>
-  <mt-tab-container-item id="订单">
-    456
-  </mt-tab-container-item>
-  <mt-tab-container-item id="发现">
-    789
-  </mt-tab-container-item>
-</mt-tab-container> -->
-<mt-tabbar v-model="selected">
-  <mt-tab-item id="home">
-    <img slot="icon" src="">
-    首页
-  </mt-tab-item>
-  <mt-tab-item id="classification">
-    <img slot="icon" src="">
-    分类
-  </mt-tab-item>
-  <mt-tab-item id="search">
-    <img slot="icon" src="">
-    搜索
-  </mt-tab-item>
-  <mt-tab-item id="my">
-    <img slot="icon" src="">
-    我的
-  </mt-tab-item>
-</mt-tabbar>
-</div>
-
+    <footer id="footer">
+        <ul>
+            <router-link tag="li" to="/home">
+                <i class="iconfont icon-dianying"></i>
+                <p>首页</p>
+            </router-link>
+            <router-link tag="li" to="/classification">
+                <i class="iconfont icon-dianying"></i>
+                <p>分类</p>
+            </router-link>
+            <router-link tag="li" to="/search">
+                <i class="iconfont icon-yingyuan"></i>
+                <p>搜索</p>
+            </router-link>
+            <router-link tag="li" to="/my">
+                <i class="iconfont icon-wode"></i>
+                <p>我的</p>
+            </router-link>
+        </ul>
+    </footer>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            selected: "home"
-        }
-    },
-    watch: {
-        'selected': {
-            handler(){
-                if(this.selected == "home") {
-                    this.$router.push('/home');
-                }
-                if(this.selected == "classification") {
-                    this.$router.push('/classification');
-                }
-                if(this.selected == "search") {
-                    this.$router.push('/search');
-                }
-                if(this.selected == "my") {
-                    this.$router.push('/my');
-                }
-            }
-        }
-    }
+    name : 'TabBar'
 }
 </script>
 
-<style>
-
+<style scoped>
+#footer{ width:100%; height:50px; background: white; border-top:2px #ebe8e3 solid; position: fixed; left: 0; bottom:0;}
+#footer ul{ display: flex; text-align: center; height:50px; align-items:center;}
+#footer ul li{ flex:1; height:40px;}
+#footer ul li.active{ color: #f03d37;}
+#footer ul li.router-link-active{ color: #f03d37;}
+#footer ul i{ font-size: 20px;}
+#footer ul p{ font-size: 12px; line-height: 18px;}
 </style>

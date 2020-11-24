@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <mt-search
+  <div id="content">
+    <mt-search class="search"
     v-model="value"
     cancel-text="取消"
     placeholder="搜索">
@@ -11,10 +11,16 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      value: ''
+    }
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+.search{
+  height: 50px;
+}
 </style>

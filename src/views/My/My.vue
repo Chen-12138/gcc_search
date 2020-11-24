@@ -1,7 +1,7 @@
 <template>
-  <div>
-      我是个人中心~~~
-  </div>
+<div id="content">
+    我是个人中心~~~
+</div>
 </template>
 
 <script>
