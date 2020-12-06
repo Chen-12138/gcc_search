@@ -14,22 +14,7 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/classification',
-    name: 'Classification',
-    component: () => import("@/views/Classification/Classification.vue")
-  },
-  {
-    path: '/search',
-    name: 'Search',
-    component: () => import("@/views/Search/Search.vue")
-  },
-  {
-    path: '/my',
-    name: 'My',
-    component: () => import("@/views/My/My.vue")
-  },
+  }
 ]
 
 const router = new VueRouter({
