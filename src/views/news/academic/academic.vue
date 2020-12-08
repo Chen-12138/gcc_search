@@ -68,9 +68,6 @@ export default {
             flex-direction: column;
             margin: 0 10px;
         }
-        span{
-            margin: 0 7.5px;
-        }
         .img1,.img6{
             width: 20px;
             height: 10px;
