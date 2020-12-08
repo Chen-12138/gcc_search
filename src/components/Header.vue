@@ -1,7 +1,7 @@
 <template>
   <header id="header">
     <div class="wrapper">
-      <div class="menu"  @click="openMenu">
+      <div class="menu"  @click="link">
         <div class="menu-icon">
           <i class="fa fa-align-justify" aria-hidden="true"></i>
         </div>
@@ -33,6 +33,11 @@ export default {
     },
   },
   methods:{
+    link(){
+      this.$router.push({
+        path:"explorer"
+      })
+    }
   }
 };
 </script>
@@ -43,9 +48,9 @@ export default {
   height:62px;
   padding: 0 1.8rem;
   color: #fff;
-  background: #e54847;
   font-size: 1.5rem;
   position: relative;
+  z-index: 2;
   padding-bottom: 2px;
   .wrapper {
     width: 100%;

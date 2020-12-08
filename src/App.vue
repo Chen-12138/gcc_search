@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header id="header"></Header>
-    <router-view/>
+    <router-view class="page"/>
   </div>
 </template>
 
@@ -23,5 +23,14 @@ export default {
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+.page{
+  padding-top:62px;
+  position: absolute;
+  top:0;
+  width: 100%;
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
 }
 </style>

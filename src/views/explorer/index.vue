@@ -1,26 +1,44 @@
 <template>
-   <div id="explorer">
-     <router-view></router-view>
-
-   </div>
+  <div id="explorer" class="page">
+    <ul>
+      <li class="item">
+        <div class="item-icon">
+          <img src="@/assets/images/hua.png" id="hua">
+        </div>
+        <div class="item-header-main">
+          <p>首页</p>
+          <img src="@/assets/images/bk.png" >
+        </div>
+      </li>
+      <li class="item"></li>
+      <li class="item"></li>
+      <li class="item"></li>
+      <li class="item"></li>
+      <li class="item"></li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
-  name: '',
-  data () {
-    return {
-
-    };
+  name: "",
+  data() {
+    return {};
   },
   components: {},
-  mounted () {},
-  methods: {}
-}
+  mounted() {},
+  methods: {},
+};
 </script>
 
 <style lang='scss' scoped>
-#explorer{
-  margin-bottom: 2rem;
+#explorer {
+  background-image:url('../../assets/images/background/home.jpg');
+  height: 100vh;
+  .item{
+    #hua{
+      width:30px;
+    }
+  }
 }
 </style>
