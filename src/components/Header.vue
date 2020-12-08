@@ -5,14 +5,6 @@
         <div class="menu-icon">
           <i class="fa fa-align-justify" aria-hidden="true"></i>
         </div>
-        <div v-if="open" class="menu-main">
-         <ul>
-             <li>1</li>
-             <li>2</li>
-             <li>3</li>
-             <li>4</li>
-         </ul>
-        </div>
       </div>
       <div class="image-container">
         <img src="@/assets/images/ci.png" id="imageCi" />
@@ -41,9 +33,6 @@ export default {
     },
   },
   methods:{
-    openMenu(){
-        this.open=!this.open;
-    }
   }
 };
 </script>
@@ -51,12 +40,13 @@ export default {
 <style scoped lang="scss">
 #header {
   width: 100%;
-  height: 80px;
+  height:62px;
   padding: 0 1.8rem;
   color: #fff;
   background: #e54847;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   position: relative;
+  padding-bottom: 2px;
   .wrapper {
     width: 100%;
     height:calc(100% - 1rem);
@@ -65,17 +55,6 @@ export default {
     .menu {
       width: 60px;
       text-align: left;
-      .menu-main{
-          position: absolute;
-          top:100%;
-          left:0;
-          background: #f09292;
-          width:80%;
-          li{
-              border-bottom: 1px rgba(255, 255, 255, 0.3) solid;
-          }
-        
-      }
     }
     .image-container {
       display: flex;
@@ -83,8 +62,9 @@ export default {
       flex-direction: column;
       align-items: center;
       img {
-        width: 68px;
-        height: 64px;
+        width: 45px;
+        height: 43px;
+        object-fit: cover;
       }
     }
     .main-container {

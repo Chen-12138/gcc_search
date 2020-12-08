@@ -29,23 +29,6 @@ const routes = [
         path: "explorer",
         name: "探索",
         component: () => import("@/views/explorer/index.vue"),
-        children: [
-          {
-            path: "collection",
-            name: "藏品",
-            component: () => import("@/views/explorer/collection/collection.vue"),
-          },
-          {
-            path: "famous",
-            name: "名家大师",
-            component: () => import("@/views/explorer/famous/famous.vue"),
-          },
-          {
-            path: "history",
-            name: '历史',
-            component: () => import("@/views/explorer/history/history.vue"),
-          }
-        ]
       },
       {
         path: "culturalProduction",
