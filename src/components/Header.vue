@@ -51,6 +51,7 @@ export default {
   font-size: 1.5rem;
   position: relative;
   z-index: 2;
+
   padding-bottom: 2px;
   .wrapper {
     width: 100%;
