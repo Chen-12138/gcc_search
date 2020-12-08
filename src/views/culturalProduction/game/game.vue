@@ -13,13 +13,122 @@
             <img class="img4" src="@/assets/images/角.png" alt="">
             <img class="img5" src="@/assets/images/角.png" alt="">
         </div>
+        <div class="line">
+        </div>
+    </div>
+    <div class="content">
+        <div class="item-left"
+        :class="index%2? 'item-right' : 'item-left'"
+        v-for="(item, index) in gameList" :key="item.gameId"
+        :id="item.gameId"
+        >
+            <div class="main">
+                <div class="top">
+                    <div class="photo">
+                        <a :href="item.url" target="_blank">
+                            <img :src="item.photo" alt="">
+                        </a>
+                    </div>
+                    <div class="text">
+                        <div class="head">
+                            {{item.name}}
+                            <img src="" alt="">
+                        </div>
+                        <div class="body">
+                            <span class="desc">
+                                {{item.introduction}}
+                            </span>
+                            <div class="design">
+                                <h2>
+                                    设计说明：
+                                </h2>
+                                <span>
+                                    {{item.design}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <h2>游戏玩法：</h2>
+                    <span>
+                        {{item.method}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="flower">
+                <img src="@/assets/images/hua.png" alt="">
+            </div>
+        </div>
+        <div class="item-right">
+            <div class="main">
+                <div class="top">
+                    <div class="photo">
+                        <img src="" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="head">
+                            跃瓷
+                            <img src="" alt="">
+                        </div>
+                        <div class="body">
+                            <span class="desc">
+                                广彩瓷作为一种广州地区一种特别的艺术品，理应被世人所认识、所了解，本游戏通过跳跃闯关的编程，让体验者感受广彩的文化
+                            </span>
+                            <div class="design">
+                                <h2>
+                                    设计说明：
+                                </h2>
+                                <span>
+                                    相比于青花瓷等瓷器，广彩瓷在国内知名度不是很高。所以，让大家知道广彩瓷，是我们首要确定的目的。其次，在知道的基础上去了解广彩瓷，将泡泡龙中的泡泡，替换成广彩瓷的一些图案，能更加直观的介绍广彩瓷。
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <h2>游戏玩法：</h2>
+                    <span>
+                        界面的上方和下方有移动的广彩障碍物。点击游戏界面，按空格控制角色躲避广彩障碍物，按上下键可以调整角色大小。当角色和广彩瓷碰撞后，游戏结束。
+                    </span>
+                </div>
+            </div>
+
+            <div class="flower">
+                <img src="@/assets/images/hua.png" alt="">
+            </div>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return{
+            gameList:[],
+        }
+    },
+    mounted(){
+        this.getGame();
+        console.log(process.env.VUE_APP_BASE_API)
+    },
+    methods: {
+        // 获取全部文创游戏
+        async getGame() {
+                try {
+                    let res = await this.$http.Production.getGame({
+                        page: 1,
+                        pageSize: 3
+                    })
+                    this.gameList = res.data.data
+                    console.log(this.gameList)
+                } catch(error) {
+                    console.log(error)
+                }
+            },
+    }
 }
 </script>
 
@@ -27,6 +136,8 @@ export default {
 #game{
     background-image: url('../../../assets/images/background/历史_历史.jpg');
     .title{
+        padding-left: 32px;
+        padding-right: 20px;
         z-index: 1;
         display: flex;
         height: 32.5px;
@@ -37,26 +148,27 @@ export default {
         justify-content: center;
         align-items: center;
         margin-top: 10px;
-        margin-bottom: 23px;
+        margin-bottom: 10px;
         .left,.right{
             display: flex;
             flex-direction: column;
-            margin: 0 10px;
+            // margin: 0 10px;
         }
         .wenchuang{
             display: flex;
-            margin: 0 7.5px;
+            // margin: 0 7.5px;
             img{
-                width: 38px;
-                height: 20px;
+                width: 45px;
+                height: 26px;
             }
             span{
-                font-size: 12px;
+                position: relative;
+                top: 6px;
+                left: 2px;
+                font-size: 14px;
+                font-weight: 500;
+                color: #f9e9cf;
             }
-        }
-        .img1,.img6{
-            width: 20px;
-            height: 10px;
         }
         .img2,.img4{
             margin-bottom: 1px;
@@ -76,7 +188,227 @@ export default {
         .img5{
             transform: rotateX(180deg);
         }
+        .line{
+            margin-left: 12px;
+            height: 100%;
+            flex: 1;
+            border-bottom: 1px solid #e2a995;
+        }
         
+    }
+    .content{
+        .item-left{
+            .main{
+                margin: 0 auto;
+                width: 328px;
+                min-height: 228px;
+                background: rgba(#a44344, 0.55);
+                border-radius: 10px;
+                overflow: hidden;
+                padding-bottom: 24px;
+                .top{
+                    display: flex;
+                    .photo{
+                        margin-top: 18px;
+                        margin-left: 10px;
+                        margin-right: 6px;
+                        width: 130px;
+                        height: 118px;
+                        border: 1px dashed #fff;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .text{
+                        text-align: left;
+                        .head{
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 9px;
+                            margin-bottom: 12px;
+                            height: 16px;
+                            font-size: 17px;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #E6E6E6;
+                            line-height: 15.5px;
+                        }
+                        .body{
+                            width: 178px;
+                            font-size: 9px;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #EDCAB2;
+                            line-height: 14.5px;
+                            .desc{
+                                // margin-bottom: 4px;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 3;
+                                overflow: hidden;
+                            }
+                            .design{
+                                h2{
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                    color: #E6E6E6;
+                                }
+                                span{
+                                    font-size: 9px;
+                                    display: -webkit-box;
+                                    -webkit-box-orient: vertical;
+                                    -webkit-line-clamp: 5;
+                                    overflow: hidden;
+                                }
+                            }
+                        }
+                    }
+                }
+                .bottom{
+                    text-align: left;
+                    margin-left: 22px;
+                    margin-right: 9px;
+                    h2{
+                        font-size: 12px;
+                        font-weight: 300;
+                        color: #E6E6E6;
+                    }
+                    span{
+                        font-size: 9px;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #EDCAB2;
+                        line-height: 14.5px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                        overflow: hidden;
+                    }
+                }
+            }
+            .flower{
+                z-index: 1;
+                margin-top: 17px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 18px;
+                    height: 20px;
+                }
+            }
+        }
+        .item-right{
+            .main{
+                margin: 0 auto;
+                width: 328px;
+                min-height: 228px;
+                background: rgba(#a44344, 0.55);
+                border-radius: 10px;
+                overflow: hidden;
+                padding-bottom: 24px;
+                .top{
+                    margin-left: 7px;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    .photo{
+                        margin-top: 15px;
+                        margin-left: 5px;
+                        margin-right: 9px;
+                        width: 130px;
+                        height: 118px;
+                        border: 1px dashed #fff;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .text{
+                        text-align: left;
+                        .head{
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 9px;
+                            margin-bottom: 12px;
+                            height: 16px;
+                            font-size: 17px;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #E6E6E6;
+                            line-height: 15.5px;
+                        }
+                        .body{
+                            width: 178px;
+                            font-size: 9px;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #EDCAB2;
+                            line-height: 14.5px;
+                            .desc{
+                                // margin-bottom: 4px;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 3;
+                                overflow: hidden;
+                            }
+                            .design{
+                                h2{
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                    color: #E6E6E6;
+                                }
+                                span{
+                                    font-size: 9px;
+                                    display: -webkit-box;
+                                    -webkit-box-orient: vertical;
+                                    -webkit-line-clamp: 5;
+                                    overflow: hidden;
+                                }
+                            }
+                        }
+                    }
+                }
+                .bottom{
+                    text-align: left;
+                    margin-left: 7px;
+                    margin-right: 9px;
+                    h2{
+                        font-size: 12px;
+                        font-weight: 300;
+                        color: #E6E6E6;
+                    }
+                    span{
+                        font-size: 9px;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #EDCAB2;
+                        line-height: 14.5px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                        overflow: hidden;
+                    }
+                }
+            }
+            .flower{
+                z-index: 1;
+                margin-top: 17px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 18px;
+                    height: 20px;
+                }
+            }
+        }
     }
 }
 </style>

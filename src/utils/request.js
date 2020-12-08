@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Notification, MessageBox, Message } from "element-ui";
+// import { Notification, MessageBox, Message } from "element-ui";
 import store from "@/store";
 import router from "@/router";
 import { getToken, removeToken } from "@/utils/auth";
@@ -10,7 +10,7 @@ const service = axios.create({
   // axios中请求配置有baseURL选项，表示请求URL公共部分
   baseURL: process.env.VUE_APP_BASE_API,
   // 测试
-  // baseURL: 'http://47.102.155.74:10808/color_porcelain',
+  baseURL: 'http://47.102.155.74:10808/color_porcelain',
   timeout: 12000
 })
 // request拦截器
@@ -19,7 +19,8 @@ service.interceptors.request.use(
     // 是否需要设置 token
     const isToken = (config.headers || {}).isToken === false;
     if (getToken() && !isToken) {
-      config.headers["Authorization"] = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
+      config.headers["Authorization"] = '3a742fc0-2609-41eb-9ea0-89ee5b888ae7';
+      // config.headers["Authorization"] = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
     }
     return config;
   },

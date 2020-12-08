@@ -101,8 +101,7 @@ export default {
             margin: 0 auto;
             width: 340px;
             height: 515px;
-            background: #a44344;
-            opacity: 0.85;
+            background: rgba(#a44344, 0.55);
             border-radius: 10px;
             margin-bottom: 30px;
             padding-bottom: 15px;
