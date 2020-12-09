@@ -136,46 +136,46 @@ export default {
 #game{
     background-image: url('../../../assets/images/background/历史_历史.jpg');
     .title{
-        padding-left: 32px;
-        padding-right: 20px;
+        padding-left: 2rem;
+        padding-right: 1.25rem;
         z-index: 1;
         display: flex;
-        height: 32.5px;
-        font-size: 18px;
+        height: 2.0313rem;
+        font-size: 1.125rem;
         font-weight: 500;
         // color: #ECECE3;
         font-family: Source Han Sans CN;
         justify-content: center;
         align-items: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 0.625rem;
+        margin-bottom: 0.625rem;
         .left,.right{
             display: flex;
             flex-direction: column;
-            // margin: 0 10px;
+            // margin: 0 0.625rem;
         }
         .wenchuang{
             display: flex;
-            // margin: 0 7.5px;
+            // margin: 0 0.4688rem;
             img{
-                width: 45px;
-                height: 26px;
+                width: 2.8125rem;
+                height: 1.625rem;
             }
             span{
                 position: relative;
-                top: 6px;
-                left: 2px;
-                font-size: 14px;
+                top: 0.375rem;
+                left: 0.125rem;
+                font-size: 0.875rem;
                 font-weight: 500;
                 color: #f9e9cf;
             }
         }
         .img2,.img4{
-            margin-bottom: 1px;
+            margin-bottom: 0.0625rem;
         }
         .img2,.img3,.img4,.img5{
-            width: 15px;
-            height: 15px;
+            width: 0.9375rem;
+            height: 0.9375rem;
             transform-origin: center;
         }
         .img2{
@@ -189,10 +189,10 @@ export default {
             transform: rotateX(180deg);
         }
         .line{
-            margin-left: 12px;
+            margin-left: 0.75rem;
             height: 100%;
             flex: 1;
-            border-bottom: 1px solid #e2a995;
+            border-bottom: 0.0625rem solid #e2a995;
         }
         
     }
@@ -200,22 +200,22 @@ export default {
         .item-left{
             .main{
                 margin: 0 auto;
-                width: 328px;
-                min-height: 228px;
+                width: 20.5rem;
+                min-height: 14.25rem;
                 background: rgba(#a44344, 0.55);
-                border-radius: 10px;
+                border-radius: 0.625rem;
                 overflow: hidden;
-                padding-bottom: 24px;
+                padding-bottom: 1.5rem;
                 .top{
                     display: flex;
                     .photo{
-                        margin-top: 18px;
-                        margin-left: 10px;
-                        margin-right: 6px;
-                        width: 130px;
-                        height: 118px;
-                        border: 1px dashed #fff;
-                        border-radius: 10px;
+                        margin-top: 1.125rem;
+                        margin-left: 0.625rem;
+                        margin-right: 0.375rem;
+                        width: 8.125rem;
+                        height: 7.375rem;
+                        border: 0.0625rem dashed #fff;
+                        border-radius: 0.625rem;
                         overflow: hidden;
                         img{
                             width: 100%;
@@ -227,24 +227,24 @@ export default {
                         .head{
                             display: flex;
                             justify-content: space-between;
-                            margin-top: 9px;
-                            margin-bottom: 12px;
-                            height: 16px;
-                            font-size: 17px;
+                            margin-top: 0.5625rem;
+                            margin-bottom: 0.75rem;
+                            height: 1rem;
+                            font-size: 1.0625rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
                             color: #E6E6E6;
-                            line-height: 15.5px;
+                            line-height: 0.9688rem;
                         }
                         .body{
-                            width: 178px;
-                            font-size: 9px;
+                            width: 11.125rem;
+                            font-size: 0.5625rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
                             color: #EDCAB2;
-                            line-height: 14.5px;
+                            line-height: 0.9063rem;
                             .desc{
-                                // margin-bottom: 4px;
+                                // margin-bottom: 0.25rem;
                                 display: -webkit-box;
                                 -webkit-box-orient: vertical;
                                 -webkit-line-clamp: 3;
@@ -252,12 +252,12 @@ export default {
                             }
                             .design{
                                 h2{
-                                    font-size: 12px;
+                                    font-size: 0.75rem;
                                     font-weight: 300;
                                     color: #E6E6E6;
                                 }
                                 span{
-                                    font-size: 9px;
+                                    font-size: 0.5625rem;
                                     display: -webkit-box;
                                     -webkit-box-orient: vertical;
                                     -webkit-line-clamp: 5;
@@ -269,19 +269,19 @@ export default {
                 }
                 .bottom{
                     text-align: left;
-                    margin-left: 22px;
-                    margin-right: 9px;
+                    margin-left: 1.375rem;
+                    margin-right: 0.5625rem;
                     h2{
-                        font-size: 12px;
+                        font-size: 0.75rem;
                         font-weight: 300;
                         color: #E6E6E6;
                     }
                     span{
-                        font-size: 9px;
+                        font-size: 0.5625rem;
                         font-family: Source Han Sans CN;
                         font-weight: 400;
                         color: #EDCAB2;
-                        line-height: 14.5px;
+                        line-height: 0.9063rem;
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
@@ -291,38 +291,38 @@ export default {
             }
             .flower{
                 z-index: 1;
-                margin-top: 17px;
-                margin-bottom: 10px;
+                margin-top: 1.0625rem;
+                margin-bottom: 0.625rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 img{
-                    width: 18px;
-                    height: 20px;
+                    width: 1.125rem;
+                    height: 1.25rem;
                 }
             }
         }
         .item-right{
             .main{
                 margin: 0 auto;
-                width: 328px;
-                min-height: 228px;
+                width: 20.5rem;
+                min-height: 14.25rem;
                 background: rgba(#a44344, 0.55);
-                border-radius: 10px;
+                border-radius: 0.625rem;
                 overflow: hidden;
-                padding-bottom: 24px;
+                padding-bottom: 1.5rem;
                 .top{
-                    margin-left: 7px;
+                    margin-left: 0.4375rem;
                     display: flex;
                     flex-direction: row-reverse;
                     .photo{
-                        margin-top: 15px;
-                        margin-left: 5px;
-                        margin-right: 9px;
-                        width: 130px;
-                        height: 118px;
-                        border: 1px dashed #fff;
-                        border-radius: 10px;
+                        margin-top: 0.9375rem;
+                        margin-left: 0.3125rem;
+                        margin-right: 0.5625rem;
+                        width: 8.125rem;
+                        height: 7.375rem;
+                        border: 0.0625rem dashed #fff;
+                        border-radius: 0.625rem;
                         overflow: hidden;
                         img{
                             width: 100%;
@@ -334,24 +334,24 @@ export default {
                         .head{
                             display: flex;
                             justify-content: space-between;
-                            margin-top: 9px;
-                            margin-bottom: 12px;
-                            height: 16px;
-                            font-size: 17px;
+                            margin-top: 0.5625rem;
+                            margin-bottom: 0.75rem;
+                            height: 1rem;
+                            font-size: 1.0625rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
                             color: #E6E6E6;
-                            line-height: 15.5px;
+                            line-height: 0.9688rem;
                         }
                         .body{
-                            width: 178px;
-                            font-size: 9px;
+                            width: 11.125rem;
+                            font-size: 0.5625rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
                             color: #EDCAB2;
-                            line-height: 14.5px;
+                            line-height: 0.9063rem;
                             .desc{
-                                // margin-bottom: 4px;
+                                // margin-bottom: 0.25rem;
                                 display: -webkit-box;
                                 -webkit-box-orient: vertical;
                                 -webkit-line-clamp: 3;
@@ -359,12 +359,12 @@ export default {
                             }
                             .design{
                                 h2{
-                                    font-size: 12px;
+                                    font-size: 0.75rem;
                                     font-weight: 300;
                                     color: #E6E6E6;
                                 }
                                 span{
-                                    font-size: 9px;
+                                    font-size: 0.5625rem;
                                     display: -webkit-box;
                                     -webkit-box-orient: vertical;
                                     -webkit-line-clamp: 5;
@@ -376,19 +376,19 @@ export default {
                 }
                 .bottom{
                     text-align: left;
-                    margin-left: 7px;
-                    margin-right: 9px;
+                    margin-left: 0.4375rem;
+                    margin-right: 0.5625rem;
                     h2{
-                        font-size: 12px;
+                        font-size: 0.75rem;
                         font-weight: 300;
                         color: #E6E6E6;
                     }
                     span{
-                        font-size: 9px;
+                        font-size: 0.5625rem;
                         font-family: Source Han Sans CN;
                         font-weight: 400;
                         color: #EDCAB2;
-                        line-height: 14.5px;
+                        line-height: 0.9063rem;
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
@@ -398,14 +398,14 @@ export default {
             }
             .flower{
                 z-index: 1;
-                margin-top: 17px;
-                margin-bottom: 10px;
+                margin-top: 1.0625rem;
+                margin-bottom: 0.625rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 img{
-                    width: 18px;
-                    height: 20px;
+                    width: 1.125rem;
+                    height: 1.25rem;
                 }
             }
         }
