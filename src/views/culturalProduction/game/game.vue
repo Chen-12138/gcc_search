@@ -1,5 +1,5 @@
 <template>
-  <div id="game">
+  <div id="game" class="page">
     <div class="title">
         <div class="left">
             <img class="img2" src="@/assets/images/角.png" alt="">
@@ -59,7 +59,7 @@
                     </span>
                 </div>
             </div>
-            <div class="flower">
+            <div class="flower" v-if="item.gameId%3 != 0">
                 <img src="@/assets/images/hua.png" alt="">
             </div>
             <div class="point">
@@ -147,7 +147,7 @@ export default {
 
 <style lang="scss" scoped>
 #game{
-    background-image: url('../../../assets/images/background/历史_历史.jpg');
+    background-image: url('../../../assets/images/background/AI手机端长图 历史-04.jpg');
     .title{
         padding-left: 2rem;
         padding-right: 1.25rem;
@@ -328,16 +328,14 @@ export default {
                 }
             }
             .point{
-                // width: 18px;
-                // height: 162px;
                 position: absolute;
-                top: 114px;
-                right: 8px;
+                top: 7.125rem;
+                right: 0.5rem;
                 div{
-                    width: 7px;
-                    height: 7px;
+                    width: 0.4375rem;
+                    height: 0.4375rem;
                     border-radius: 50%;
-                    margin-bottom: 15px;
+                    margin-bottom: 0.9375rem;
                 }
                 .circle1{
                     background: #9a6f4c;
@@ -485,16 +483,14 @@ export default {
                 }
             }
             .point{
-                // width: 18px;
-                // height: 162px;
                 position: absolute;
-                top: 114px;
-                right: 8px;
+                top: 7.125rem;
+                right: 0.5rem;
                 div{
-                    width: 7px;
-                    height: 7px;
+                    width: 0.4375rem;
+                    height: 0.4375rem;
                     border-radius: 50%;
-                    margin-bottom: 15px;
+                    margin-bottom: 0.9375rem;
                 }
                 .circle1{
                     background: #9a6f4c;

@@ -1,5 +1,5 @@
 <template>
-  <div id="production">
+  <div id="production" class="page">
     <div class="title">
         <div class="left">
             <img class="img2" src="@/assets/images/角.png" alt="">
@@ -138,46 +138,46 @@ export default {
 #production{
     background-image: url('../../../assets/images/background/历史_历史.jpg');
     .title{
-        padding-left: 24px;
-        padding-right: 20px;
+        padding-left: 1.5rem;
+        padding-right: 1.25rem;
         z-index: 1;
         display: flex;
-        height: 32.5008px;
-        font-size: 18px;
+        height: 2.0313rem;
+        font-size: 1.125rem;
         font-weight: 500;
         // color: #ECECE3;
         font-family: Source Han Sans CN;
         justify-content: center;
         align-items: center;
-        margin-top: 10px;
-        margin-bottom: 16px;
+        margin-top: 0.625rem;
+        margin-bottom: 1rem;
         .left,.right{
             display: flex;
             flex-direction: column;
-            // margin: 0 10px;
+            // margin: 0 0.625rem;
         }
         .wenchuang{
             display: flex;
-            // margin: 0 7.5008px;
+            // margin: 0 0.4688rem;
             img{
-                width: 45px;
-                height: 26px;
+                width: 2.8125rem;
+                height: 1.625rem;
             }
             span{
                 position: relative;
-                top: 6px;
-                left: 2px;
-                font-size: 14px;
+                top: 0.375rem;
+                left: 0.125rem;
+                font-size: 0.875rem;
                 font-weight: 500;
                 color: #f9e9cf;
             }
         }
         .img2,.img4{
-            margin-bottom: 1px;
+            margin-bottom: 0.0625rem;
         }
         .img2,.img3,.img4,.img5{
-            width: 15px;
-            height: 15px;
+            width: 0.9375rem;
+            height: 0.9375rem;
             transform-origin: center;
         }
         .img2{
@@ -192,14 +192,14 @@ export default {
         }
         .line{
             position: relative;
-            width: 220px;
-            margin-left: 10px;
+            width: 13.75rem;
+            margin-left: 0.625rem;
             height: 100%;
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #e2a995;
+            border-bottom: 0.0625rem solid #e2a995;
             overflow: auto;
             .tag_wrap{
                 position: absolute;
@@ -209,19 +209,19 @@ export default {
                 align-items: center;
                 overflow: auto;
                 .tag{
-                    border: 1px solid #edcab2;
-                    border-radius: 10px;
+                    border: 0.0625rem solid #edcab2;
+                    border-radius: 0.625rem;
                     white-space: nowrap;
-                    font-size: 8px;
+                    font-size: 0.5rem;
                     font-family: Source Han Sans CN;
                     font-weight: 400;
                     color: #F9E3D7;
-                    line-height: 12px;
-                    padding: 2px 10px;
-                    margin-left: 5px;
+                    line-height: 0.75rem;
+                    padding: 0.125rem 0.625rem;
+                    margin-left: 0.3125rem;
                     &.active{
                         color: #000;
-                        font-size: 10px;
+                        font-size: 0.625rem;
                         background: #edcab2;
                     }
                 }
@@ -231,28 +231,28 @@ export default {
     }
     .production_wrap{
         margin: 0 auto;
-        padding-left: 22px;
-        padding-right: 20px;
+        padding-left: 1.375rem;
+        padding-right: 1.25rem;
         display: flex;
         flex-wrap: wrap;
-        padding-bottom: 70px;
+        padding-bottom: 4.75rem;
         .production_item{
             position: relative;
-            width: 154px;
-            // height: 203px;
+            width: 9.625rem;
+            // height: 12.6875rem;
             background: rgba(#a44344, 0.55);
-            border-radius: 10px;
-            margin-bottom: 16px;
+            border-radius: 0.625rem;
+            margin-bottom: 1rem;
             &:nth-child(odd){
-                margin-right: 10px;
+                margin-right: 1.25rem;
             }
             .photo{
-                margin-top: 10px;
-                margin-left: 22px;
-                margin-bottom: 6px;
-                width: 100px;
-                height: 126px;
-                border-radius: 10px;
+                margin-top: 0.625rem;
+                margin-left: 1.375rem;
+                margin-bottom: 0.375rem;
+                width: 6.25rem;
+                height: 7.875rem;
+                border-radius: 0.625rem;
                 border: 0.0625rem dashed #e4c292;
                 img{
                     width: 100%;
@@ -260,35 +260,35 @@ export default {
                 }
             }
             .name{
-                margin-left: 15px;
-                margin-bottom: 6px;
+                margin-left: 0.9375rem;
+                margin-bottom: 0.375rem;
                 text-align: left;
-                font-size: 12px;
+                font-size: 0.75rem;
                 font-family: Source Han Sans CN;
                 font-weight: 400;
                 color: #F9E3D7;
-                // line-height: 65px;
+                // line-height: 4.0625rem;
             }
             .desc{
-                width: 118px;
-                margin-left: 15px;
+                width: 7.375rem;
+                margin-left: 0.9375rem;
                 text-align: left;
-                font-size: 10px;
+                font-size: 0.625rem;
                 font-family: Source Han Sans CN;
                 font-weight: 400;
                 color: #F9E3D7;
             }
             .point{
-                // width: 18px;
-                // height: 162px;
+                // width: 1.125rem;
+                // height: 10.125rem;
                 position: absolute;
-                top: 12px;
-                right: 8px;
+                top: 0.75rem;
+                right: 0.5rem;
                 div{
-                    width: 7px;
-                    height: 7px;
+                    width: 0.4375rem;
+                    height: 0.4375rem;
                     border-radius: 50%;
-                    margin-bottom: 15px;
+                    margin-bottom: 0.9375rem;
                 }
                 .circle1{
                     background: #9a6f4c;
@@ -318,16 +318,16 @@ export default {
             .star{
                 text-align: right;
                 .fa-star-o{
-                    margin-right: 6px;
-                    margin-bottom: 4px;
+                    margin-right: 0.375rem;
+                    margin-bottom: 0.25rem;
                     color: #c7b49b;
-                    font-size: 22px;
+                    font-size: 1.375rem;
                 }
                 .fa-star{
-                    margin-right: 6px;
-                    margin-bottom: 4px;
+                    margin-right: 0.375rem;
+                    margin-bottom: 0.25rem;
                     color: #fbae17;
-                    font-size: 22px;
+                    font-size: 1.375rem;
                 }
             }
 

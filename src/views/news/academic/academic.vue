@@ -117,35 +117,35 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #academic{
-    background-image: url('../../../assets/images/background/学术_学术.jpg');
+    background-image: url('../../../assets/images/background/AI手机端长图 学术-03.jpg');
     .title{
         display: flex;
-        height: 32.5px;
-        font-size: 18px;
+        height: 2.0313rem;
+        font-size: 1.125rem;
         font-weight: 500;
         // color: #ECECE3;
         font-family: Source Han Sans CN;
         justify-content: center;
         align-items: center;
-        margin-top: 10px;
-        margin-bottom: 23px;
+        margin-top: 0.625rem;
+        margin-bottom: 1.4375rem;
         .left,.right{
             display: flex;
             flex-direction: column;
-            margin: 0 10px;
+            margin: 0 0.625rem;
         }
         .img1,.img6{
-            width: 20px;
-            height: 10px;
+            width: 1.25rem;
+            height: 0.625rem;
         }
         .img2,.img4{
-            margin-bottom: 1px;
+            margin-bottom: 0.0625rem;
         }
         .img2,.img3,.img4,.img5{
-            width: 15px;
-            height: 15px;
+            width: 0.9375rem;
+            height: 0.9375rem;
             transform-origin: center;
         }
         .img2{
@@ -168,27 +168,27 @@ export default {
             flex-direction: column;
             align-items: center;
             margin: 0 auto;
-            width: 340px;
-            // height: 515px;
+            width: 21.25rem;
+            // height: 32.1875rem;
             background: rgba(#a44344, 0.55);
-            border-radius: 10px;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
+            border-radius: 0.625rem;
+            margin-bottom: 1.875rem;
+            padding-bottom: 0.9375rem;
             .flower{
-                margin-top: 18px;
-                margin-bottom: 5px;
-                width: 18px;
-                height: 20px;
+                margin-top: 1.125rem;
+                margin-bottom: 0.3125rem;
+                width: 1.125rem;
+                height: 1.25rem;
                 img{
                     height: 100%;
                     width: 100%;
                 }
             }
             .photo{
-                width: 304px;
-                height: 195px;
-                border: 1px dashed #fff;
-                border-radius: 10px;
+                width: 19rem;
+                height: 12.1875rem;
+                border: 0.0625rem dashed #fff;
+                border-radius: 0.625rem;
                 img{
                     width: 100%;
                     height: 100%;
@@ -196,50 +196,60 @@ export default {
             }
             .text{
                 .title{
-                    width: 280px;
+                    width: 17.5rem;
                     text-align: left;
-                    // margin-top: 14px;
-                    // margin-bottom: 18px;
-                    font-size: 16px;
+                    // margin-top: 0.875rem;
+                    // margin-bottom: 1.125rem;
+                    font-size: 1rem;
                     font-family: Source Han Sans CN;
                     font-weight: 400;
                     color: #E6E6E6;
-                    padding-top: 35px;
-                    padding-bottom: 30px;
+                    padding-top: 2.1875rem;
+                    padding-bottom: 1.875rem;
                 }
                 .main{
-                    width: 282px;
+                    width: 17.625rem;
                     text-align: justify;
-                    font-size: 15px;
+                    font-size: 0.9375rem;
                     font-family: Source Han Sans CN;
                     font-weight: 400;
                     color: #E6E6E6;
-                    line-height: 20px;
+                    line-height: 1.25rem;
                     p{
-                        font-size: 14px;
+                        font-size: 0.875rem;
                     }
                 }
             }
             .star{
                 position: absolute;
-                right: 8px;
-                bottom: 4px;
+                right: 0.5rem;
+                bottom: 0.25rem;
                 text-align: right;
                 .fa-star-o{
-                    margin-right: 6px;
-                    margin-bottom: 4px;
+                    margin-right: 0.375rem;
+                    margin-bottom: 0.25rem;
                     color: #c7b49b;
-                    font-size: 24px;
+                    font-size: 1.5rem;
                 }
                 .fa-star{
-                    margin-right: 6px;
-                    margin-bottom: 4px;
+                    margin-right: 0.375rem;
+                    margin-bottom: 0.25rem;
                     color: #c7b49b;
-                    font-size: 24px;
+                    font-size: 1.5rem;
                 }
             }
         }
     }
+    .prev,.next{
+        padding: 0.5rem 1.125rem;
+        height: 1.5625rem;
+        border-radius: 1.25rem;
+        background: #8d4633;
+        font-size: 0.625rem;
+        font-family: Source Han Sans CN;
+        font-weight: 500;
+        color: #F9E3D7;
+        line-height: 0.4688rem;
+    }
 }
-
 </style>
