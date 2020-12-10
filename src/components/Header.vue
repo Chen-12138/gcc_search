@@ -20,8 +20,9 @@
         />
       </div>
       <div class="main-container">
+     
         <i class="fa fa-search" aria-hidden="true"></i>
-        <i class="fa fa-user" aria-hidden="true"></i>
+        <router-link :to="{path:'user'}"><i class="fa fa-user" aria-hidden="true"></i></router-link>
       </div>
     </div>
     <p>Catonese color culture</p>
