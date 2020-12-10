@@ -43,7 +43,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-               <router-link :to="{path:'home'}">文创</router-link>
+               <router-link :to="{path:'culturalProduction/production'}">文创</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -52,7 +52,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-               <router-link :to="{path:'home'}">资讯</router-link>
+               <router-link :to="{path:'news/academic'}">资讯</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>

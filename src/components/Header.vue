@@ -47,7 +47,7 @@ export default {
   methods: {
     link() {
       this.$router.push({
-        path: "explorer",
+        name: "探索",
       });
     },
   },
