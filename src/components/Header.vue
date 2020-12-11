@@ -1,17 +1,28 @@
 <template>
-  <header id="header">
+  <header id="header" :class="colorStyle">
     <div class="wrapper">
-      <div class="menu"  @click="link">
+      <div class="menu" @click="link">
         <div class="menu-icon">
           <i class="fa fa-align-justify" aria-hidden="true"></i>
+          
         </div>
       </div>
       <div class="image-container">
-        <img src="@/assets/images/ci.png" id="imageCi" />
+        <img
+          src="@/assets/images/ci_white.png"
+          id="imageCi"
+          v-if="colorStyle == 'white_header'"
+        />
+        <img
+          src="@/assets/images/ci_black.png"
+          id="imageCi"
+          v-if="colorStyle == 'black_header'"
+        />
       </div>
       <div class="main-container">
+     
         <i class="fa fa-search" aria-hidden="true"></i>
-        <i class="fa fa-user" aria-hidden="true"></i>
+        <router-link :to="{path:'user'}"><i class="fa fa-user" aria-hidden="true"></i></router-link>
       </div>
     </div>
     <p>Catonese color culture</p>
@@ -21,10 +32,12 @@
 <script>
 export default {
   name: "",
-  data(){
-   return{
-     open:false
-   }
+  data() {
+    return {
+      open: false,
+      colorStyle: null,
+      isQr: false,
+    };
   },
   props: {
     title: {
@@ -32,22 +45,52 @@ export default {
       default: "粤彩文化",
     },
   },
-  methods:{
-    link(){
+  methods: {
+    link() {
       this.$router.push({
-        path:"explorer"
-      })
-    }
-  }
+        name: "探索",
+      });
+    },
+  },
+  watch: {
+    $route: function (val) {
+      //这里可以用职责链||组合模式来完成渲染
+      let name = val.name;
+      let setting = {
+        color: {
+          black: ["首页", "名家大师", "login", "用户中心"],
+          white: ["藏品", "历史", "探索"],
+        },
+        qrCode: {
+          show: ["首页"],
+        },
+      };
+      for (const [key, list] of Object.entries(setting.color)) {
+        if (list.find((res) => res == name)) {
+          this.colorStyle = key + "_header";
+        }
+      }
+      for (const [key, list] of Object.entries(setting.qrCode)) {
+        if (list.find((res) => res == name)) {
+          this.isQr = true;
+        }
+      }
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.white_header {
+  color: #fff;
+}
+.black_header {
+  color: black;
+}
 #header {
   width: 100%;
-  height:62px;
+  height: 62px;
   padding: 0 1.8rem;
-  color: #fff;
   font-size: 1.5rem;
   position: relative;
   z-index: 2;
@@ -55,7 +98,7 @@ export default {
   padding-bottom: 2px;
   .wrapper {
     width: 100%;
-    height:calc(100% - 1rem);
+    height: calc(100% - 1rem);
     display: flex;
     align-items: flex-end;
     .menu {
@@ -79,9 +122,9 @@ export default {
       width: 60px;
     }
   }
-  p{  
-      font-size: 1rem;
-      transform: scale(0.5) translateY(-1rem);
+  p {
+    font-size: 1rem;
+    transform: scale(0.5) translateY(-1rem);
   }
 }
 </style>

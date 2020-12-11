@@ -1,5 +1,5 @@
 <template>
-  <div id="game">
+  <div id="game" class="page">
     <div class="title">
         <div class="left">
             <img class="img2" src="@/assets/images/角.png" alt="">
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="content">
-        <div class="item-left"
+        <div
         :class="index%2? 'item-right' : 'item-left'"
         v-for="(item, index) in gameList" :key="item.gameId"
         :id="item.gameId"
@@ -32,7 +32,10 @@
                     <div class="text">
                         <div class="head">
                             {{item.name}}
-                            <img src="" alt="">
+                            <div class="star">
+                                <i v-if="!likeStatus[index]" class="fa fa-star-o" aria-hidden="true" @click="collect(item.gameId,index)"></i>
+                                <i v-else class="fa fa-star" aria-hidden="true" @click="collect(item.gameId,index)"></i>
+                            </div>
                         </div>
                         <div class="body">
                             <span class="desc">
@@ -56,85 +59,95 @@
                     </span>
                 </div>
             </div>
-
-            <div class="flower">
+            <div class="flower" v-if="item.gameId%3 != 0">
                 <img src="@/assets/images/hua.png" alt="">
             </div>
-        </div>
-        <div class="item-right">
-            <div class="main">
-                <div class="top">
-                    <div class="photo">
-                        <img src="" alt="">
-                    </div>
-                    <div class="text">
-                        <div class="head">
-                            跃瓷
-                            <img src="" alt="">
-                        </div>
-                        <div class="body">
-                            <span class="desc">
-                                广彩瓷作为一种广州地区一种特别的艺术品，理应被世人所认识、所了解，本游戏通过跳跃闯关的编程，让体验者感受广彩的文化
-                            </span>
-                            <div class="design">
-                                <h2>
-                                    设计说明：
-                                </h2>
-                                <span>
-                                    相比于青花瓷等瓷器，广彩瓷在国内知名度不是很高。所以，让大家知道广彩瓷，是我们首要确定的目的。其次，在知道的基础上去了解广彩瓷，将泡泡龙中的泡泡，替换成广彩瓷的一些图案，能更加直观的介绍广彩瓷。
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <h2>游戏玩法：</h2>
-                    <span>
-                        界面的上方和下方有移动的广彩障碍物。点击游戏界面，按空格控制角色躲避广彩障碍物，按上下键可以调整角色大小。当角色和广彩瓷碰撞后，游戏结束。
-                    </span>
-                </div>
-            </div>
-
-            <div class="flower">
-                <img src="@/assets/images/hua.png" alt="">
+            <div class="point">
+                <!-- <img src="@/assets/images/点2.png" alt=""> -->
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+                <div class="circle5"></div>
+                <div class="circle6"></div>
+                <div class="circle7"></div>
+                <div class="circle8"></div>
             </div>
         </div>
     </div>
+    <Pagination :total="total" :display="pageSize" :current="page" @pagechange="pagechange" :pagegroup=3></Pagination>
   </div>
 </template>
 
 <script>
+import Pagination from '@/components/Pagination.vue'
 export default {
+    components:{
+        Pagination
+    },
     data() {
         return{
+            // 总数据数
+            total:6,
+            // 当前页数
+            page: 1,
+            // 显示
+            pageSize:3,
+            // 游戏数组
             gameList:[],
+            // 储存收藏状态
+            likeStatus: []
         }
     },
     mounted(){
         this.getGame();
-        console.log(process.env.VUE_APP_BASE_API)
+        // console.log(this.gameList)
     },
     methods: {
-        // 获取全部文创游戏
+        // 分页获取
         async getGame() {
-                try {
-                    let res = await this.$http.Production.getGame({
-                        page: 1,
-                        pageSize: 3
-                    })
-                    this.gameList = res.data.data
-                    console.log(this.gameList)
-                } catch(error) {
-                    console.log(error)
-                }
-            },
+            try {
+                let res = await this.$http.Production.getGame({
+                    page: this.page,
+                    pageSize: this.pageSize
+                })
+                this.gameList = res.data.data
+                // 存储收藏信息
+                this.likeStatus = []
+                this.gameList.map(item => {
+                    this.likeStatus.push(item.isCollected)
+                })
+            } catch(error) {
+                console.log(error)
+            }
+        },
+        // 页数切换
+        pagechange(idx){
+            this.page = idx
+			this.getGame()
+        },
+        // 调用收藏接口
+        async getLike(id) {
+            try {
+                let res = await this.$http.Production.getGameLike({
+                    gameId: id
+                })
+            } catch(error) {
+                console.log(error)
+            }
+        },
+        // 收藏切换
+        collect(id,index){
+            this.getLike(id)
+            this.$set(this.likeStatus,index,!this.likeStatus[index])
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
 #game{
-    background-image: url('../../../assets/images/background/历史_历史.jpg');
+    background-image: url('../../../assets/images/background/AI手机端长图 历史-04.jpg');
     .title{
         padding-left: 2rem;
         padding-right: 1.25rem;
@@ -198,6 +211,7 @@ export default {
     }
     .content{
         .item-left{
+            position: relative;
             .main{
                 margin: 0 auto;
                 width: 20.5rem;
@@ -235,6 +249,18 @@ export default {
                             font-weight: 400;
                             color: #E6E6E6;
                             line-height: 0.9688rem;
+                            .star{
+                                text-align: right;
+                                margin-right: 0.5rem;
+                                .fa-star-o{
+                                    color: #e6e6e6;
+                                    font-size: 1.375rem;
+                                }
+                                .fa-star{
+                                    color: #fbae17;
+                                    font-size: 1.375rem;
+                                }
+                            }
                         }
                         .body{
                             width: 11.125rem;
@@ -301,8 +327,44 @@ export default {
                     height: 1.25rem;
                 }
             }
+            .point{
+                position: absolute;
+                top: 7.125rem;
+                right: 0.5rem;
+                div{
+                    width: 0.4375rem;
+                    height: 0.4375rem;
+                    border-radius: 50%;
+                    margin-bottom: 0.9375rem;
+                }
+                .circle1{
+                    background: #9a6f4c;
+                }
+                .circle2{
+                    background: #b02c18;
+                }
+                .circle3{
+                    background: #b2836b;
+                }
+                .circle4{
+                    background: #69312e;
+                }
+                .circle5{
+                    background:#a36147;
+                }
+                .circle6{
+                    background: #884b2f;
+                }
+                .circle7{
+                    background: #a76c53;
+                }
+                .circle8{
+                    background:#6c6c60;
+                }
+            }
         }
         .item-right{
+            position: relative;
             .main{
                 margin: 0 auto;
                 width: 20.5rem;
@@ -342,6 +404,18 @@ export default {
                             font-weight: 400;
                             color: #E6E6E6;
                             line-height: 0.9688rem;
+                            .star{
+                                text-align: right;
+                                margin-right: 0.5rem;
+                                .fa-star-o{
+                                    color: #e6e6e6;
+                                    font-size: 1.375rem;
+                                }
+                                .fa-star{
+                                    color: #fbae17;
+                                    font-size: 1.375rem;
+                                }
+                            }
                         }
                         .body{
                             width: 11.125rem;
@@ -406,6 +480,41 @@ export default {
                 img{
                     width: 1.125rem;
                     height: 1.25rem;
+                }
+            }
+            .point{
+                position: absolute;
+                top: 7.125rem;
+                right: 0.5rem;
+                div{
+                    width: 0.4375rem;
+                    height: 0.4375rem;
+                    border-radius: 50%;
+                    margin-bottom: 0.9375rem;
+                }
+                .circle1{
+                    background: #9a6f4c;
+                }
+                .circle2{
+                    background: #b02c18;
+                }
+                .circle3{
+                    background: #b2836b;
+                }
+                .circle4{
+                    background: #69312e;
+                }
+                .circle5{
+                    background:#a36147;
+                }
+                .circle6{
+                    background: #884b2f;
+                }
+                .circle7{
+                    background: #a76c53;
+                }
+                .circle8{
+                    background:#6c6c60;
                 }
             }
         }

@@ -14,70 +14,138 @@
             <img class="img6" src="@/assets/images/bk.png" alt="">
         </div>
         <div class="content">
-            <div class="item">
+            <div class="item" v-for="(item,index) in academicList" :key="item.academicId"
+            :id="item.academicId"
+            >
                 <div class="flower">
                     <img src="@/assets/images/hua.png" alt="">
                 </div>
                 <div class="photo">
-
+                    <img :src="item.photo" alt="">
                 </div>
                 <div class="text">
                     <div class="title">
-                        《从广彩瓷器看海丝路上的粤商》  何东红 
+                        {{item.title}} 
+                        <!-- 《从广彩瓷器看海丝路上的粤商》  何东红  -->
                     </div>
                     <div class="main">
                         <span class="zhaiyao">摘要：</span>
                         <p class="neirong">
-                            广州自古就是“海上丝绸之路”的东方主埠，有千年商都之称。广彩瓷器作为15至19世纪我国广州明清外贸的重要商品之一，正是粤商顺势而为、借势而上、造势而动的商业谋略，使广彩瓷器脱颖而出，在清代中国外销瓷市场一家独大，持续领跑。透过广彩瓷器的发展过程，可见粤商在清代海外贸易活动中，不但加强了广州与内地及海外的经济联系与往来，推动了中西方商品流通和经济发展，更为中国清代商业、手工业的发展产生了不可估量的影响。
+                            {{item.content}}
                         </p>
                     </div>
                 </div>
+                <div class="star">
+                    <i v-if="!likeStatus[index]" class="fa fa-star-o" aria-hidden="true" @click="collect(item.academicId,index)"></i>
+                    <i v-else class="fa fa-star" aria-hidden="true" @click="collect(item.academicId,index)"></i>
+                </div>
             </div>
         </div>
+        <Pagination :total="total" :display="pageSize" :current="page" @pagechange="pagechange" :pagegroup=5></Pagination>
   </div>
 </template>
 
 <script>
+import Pagination from '@/components/Pagination.vue'
 export default {
+    components:{
+        Pagination
+    },
     data(){
         return{
-
+            // 跳转过来的id
+            id: 5,
+            // 总数据数
+            total:0,
+            // 当前页数
+            page: 1,
+            // 页面容量
+            pageSize:2,
+            // 学术文献
+            academicList: [],
+            // 储存收藏状态
+            likeStatus: [],
         }
     },
     mounted(){
+        this.getAcademic();
+    },
+    methods:{
+        // 页数切换时
+        pagechange(value){
+            this.page = value
+            this.getAcademic()
+        },
+        // 获取学术文献
+        async getAcademic() {
+            try {
+                let res = await this.$http.Academic.getAcademic({
+                    pageSize: this.pageSize,
+                    page: this.page
+                })
+                // console.log(res)
+                this.academicList = res.data.data.academicList
+                // console.log(this.academicList)
+                this.total = res.data.data.total - 4
+                // 存储收藏信息
+                this.likeStatus = []
+                this.academicList.map(item => {
+                    this.likeStatus.push(item.isCollected)
+                    this.srcList.push(item.photo)
+                })
+                this.loading = false
+            } catch(error) {
+                console.log(error)
+            }
+        },
+        // 调用收藏接口
+        async getLike(id) {
+            try {
+                let res = await this.$http.Academic.getLike({
+                    academicId: id
+                })
+            } catch(error) {
+                console.log(error)
+            }
+        },
+        // 收藏切换
+        collect(id,index){
+            this.getLike(id)
+            this.$set(this.likeStatus,index,!this.likeStatus[index])
+        },
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #academic{
-    background-image: url('../../../assets/images/background/学术_学术.jpg');
+    background-image: url('../../../assets/images/background/AI手机端长图 学术-03.jpg');
     .title{
         display: flex;
-        height: 32.5px;
-        font-size: 18px;
+        height: 2.0313rem;
+        font-size: 1.125rem;
         font-weight: 500;
         // color: #ECECE3;
         font-family: Source Han Sans CN;
         justify-content: center;
         align-items: center;
-        margin-top: 10px;
-        margin-bottom: 23px;
+        margin-top: 0.625rem;
+        margin-bottom: 1.4375rem;
         .left,.right{
             display: flex;
             flex-direction: column;
-            margin: 0 10px;
+            margin: 0 0.625rem;
         }
         .img1,.img6{
-            width: 20px;
-            height: 10px;
+            width: 1.25rem;
+            height: 0.625rem;
         }
         .img2,.img4{
-            margin-bottom: 1px;
+            margin-bottom: 0.0625rem;
         }
         .img2,.img3,.img4,.img5{
-            width: 15px;
-            height: 15px;
+            width: 0.9375rem;
+            height: 0.9375rem;
             transform-origin: center;
         }
         .img2{
@@ -94,61 +162,94 @@ export default {
     }
     .content{
         .item{
+            position: relative;
             display: flex;
             // justify-content: center;
             flex-direction: column;
             align-items: center;
             margin: 0 auto;
-            width: 340px;
-            height: 515px;
+            width: 21.25rem;
+            // height: 32.1875rem;
             background: rgba(#a44344, 0.55);
-            border-radius: 10px;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
+            border-radius: 0.625rem;
+            margin-bottom: 1.875rem;
+            padding-bottom: 0.9375rem;
             .flower{
-                margin-top: 18px;
-                margin-bottom: 5px;
-                width: 18px;
-                height: 20px;
+                margin-top: 1.125rem;
+                margin-bottom: 0.3125rem;
+                width: 1.125rem;
+                height: 1.25rem;
                 img{
                     height: 100%;
                     width: 100%;
                 }
             }
             .photo{
-                width: 304px;
-                height: 195px;
-                border: 1px dashed #fff;
-                border-radius: 10px;
+                width: 19rem;
+                height: 12.1875rem;
+                border: 0.0625rem dashed #fff;
+                border-radius: 0.625rem;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
             .text{
                 .title{
+                    width: 17.5rem;
                     text-align: left;
-                    margin-top: 14px;
-                    margin-bottom: 18px;
-                    font-size: 16px;
+                    // margin-top: 0.875rem;
+                    // margin-bottom: 1.125rem;
+                    font-size: 1rem;
                     font-family: Source Han Sans CN;
                     font-weight: 400;
                     color: #E6E6E6;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    white-space: nowrap;
+                    padding-top: 2.1875rem;
+                    padding-bottom: 1.875rem;
                 }
                 .main{
-                    width: 282px;
-                    text-align: left;
-                    font-size: 15px;
+                    width: 17.625rem;
+                    text-align: justify;
+                    font-size: 0.9375rem;
                     font-family: Source Han Sans CN;
                     font-weight: 400;
                     color: #E6E6E6;
-                    line-height: 20px;
+                    line-height: 1.25rem;
                     p{
-                        font-size: 14px;
+                        font-size: 0.875rem;
                     }
+                }
+            }
+            .star{
+                position: absolute;
+                right: 0.5rem;
+                bottom: 0.25rem;
+                text-align: right;
+                .fa-star-o{
+                    margin-right: 0.375rem;
+                    margin-bottom: 0.25rem;
+                    color: #c7b49b;
+                    font-size: 1.5rem;
+                }
+                .fa-star{
+                    margin-right: 0.375rem;
+                    margin-bottom: 0.25rem;
+                    color: #c7b49b;
+                    font-size: 1.5rem;
                 }
             }
         }
     }
+    .prev,.next{
+        padding: 0.5rem 1.125rem;
+        height: 1.5625rem;
+        border-radius: 1.25rem;
+        background: #8d4633;
+        font-size: 0.625rem;
+        font-family: Source Han Sans CN;
+        font-weight: 500;
+        color: #F9E3D7;
+        line-height: 0.4688rem;
+    }
 }
-
 </style>

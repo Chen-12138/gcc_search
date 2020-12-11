@@ -1,5 +1,5 @@
 <template>
-  <div id="explorer" class="page">
+  <div id="explorer">
     <main>
       <ul>
         <li class="item">
@@ -7,7 +7,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-            <p>首页</p>
+            <router-link :to="{path:'home'}">首页</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -16,7 +16,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-            <p>藏品</p>
+               <router-link :to="{path:'collection'}">藏品</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -25,7 +25,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-            <p>历史</p>
+             <router-link :to="{path:'home'}">历史</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -34,7 +34,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-            <p>名家大师</p>
+               <router-link :to="{path:'home'}">名家大师</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -43,7 +43,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-            <p>文创</p>
+               <router-link :to="{path:'culturalProduction/production'}">文创</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -52,7 +52,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-            <p>资讯</p>
+               <router-link :to="{path:'news/academic'}">资讯</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -79,7 +79,6 @@ export default {
   height: 100vh;
   color: white;
   main {
-    margin: 0 max(5vw, 0.5rem);
     background: rgba(255, 60, 0, 0.3);
     .item {
       display: flex;
@@ -100,7 +99,7 @@ export default {
         border-bottom: 1px solid rgb(167, 67, 47);
         margin-left:5px;
         padding-bottom:2px;
-        p {
+        a {
           margin-left: 10px;
         }
         img {

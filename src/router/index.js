@@ -31,6 +31,11 @@ const routes = [
         component: () => import("@/views/explorer/index.vue"),
       },
       {
+        path: "collection",
+        name: "藏品",
+        component: () => import("@/views/collection/collection.vue"),
+      },
+      {
         path: "culturalProduction",
         name: "文创",
         component: () => import("@/views/culturalProduction/culturalProduction.vue"),
