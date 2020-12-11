@@ -113,32 +113,33 @@ export default {
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
+	align-items: center;
+	margin-top: 1.25rem;
+    margin-bottom: 1.875rem;
     /*width: 100%;*/
     .prev,.next{
-        padding: 8px 18px;
-        height: 25px;
-        border-radius: 20px;
+        padding: 0.5rem 1.125rem;
+        height: 1.5625rem;
+        border-radius: 1.25rem;
         background: rgba( #edcab2, 0.37);
-        font-size: 10px;
+        font-size: 0.625rem;
         font-family: Source Han Sans CN;
         font-weight: 500;
         color: #F9E3D7;
-        line-height: 7.5px;
+        line-height: 0.4688rem;
     }
     .prev{
-        margin-right: 10px;
+        margin-right: 0.625rem;
     }
     .next{
-        margin-left: 12px;
+        margin-left: 0.75rem;
     }
     .item{
-        width: 20px;
-        height: 6px;
-        border-radius: 3px;
+        width: 1.25rem;
+        height: 0.375rem;
+        border-radius: 0.1875rem;
         background: #42210b;
-        margin-left: 3px;
+        margin-left: 0.1875rem;
         &.active{
             background: #53ad9e;
         }
