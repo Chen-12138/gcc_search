@@ -31,16 +31,14 @@
       </div>
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
-          <div class="swiper-slide">Slide 4</div>
-          <div class="swiper-slide">Slide 5</div>
-          <div class="swiper-slide">Slide 6</div>
-          <div class="swiper-slide">Slide 7</div>
-          <div class="swiper-slide">Slide 8</div>
-          <div class="swiper-slide">Slide 9</div>
-          <div class="swiper-slide">Slide 10</div>
+          <div
+            class="swiper-slide"
+            v-for="item in collectionData.itemData[collectionData.index]"
+            :key="item.key"
+          >
+            <img :src="item.imgUrl" />
+          </div>
+          <p v-if="collectionData.itemData[collectionData.index].length==0">这里还空空如也，甚至生了草</p>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -51,21 +49,16 @@
           <p>我的足迹</p>
         </div>
         <div class="foot-main">
-          <table>
+          <table cellspacing="5">
             <tr>
               <th>标题</th>
               <th>所属项目</th>
               <th>访问时间</th>
             </tr>
-            <tr>
-              <td>xx</td>
-              <td>xx</td>
-              <td>xx</td>
-            </tr>
-            <tr>
-              <td>xx</td>
-              <td>xx</td>
-              <td>xx</td>
+            <tr v-for="item in FootData" :key="item.key">
+              <td>{{item.name}}</td>
+              <td>{{item.project}}</td>
+              <td>{{item.date}}</td>
             </tr>
           </table>
         </div>
@@ -86,6 +79,16 @@ export default {
         id: "a1163675107",
         accounts: "某时橙",
       },
+      FootData: [
+
+      ],
+      footPage: 1,
+      total: null,
+      collectionData: {
+        itemData: [[], [], []],
+        page: [0, 0, 0],
+        index: 0,
+      },
     };
   },
   components: {},
@@ -97,7 +100,15 @@ export default {
         el: ".swiper-pagination",
         clickable: true,
       },
+      observer: true, //修改swiper自己或子元素时，自动初始化swiper
+      observeParents: false, //修改swiper的父元素时，自动初始化swiper
+      onSlideChangeEnd: function (swiper) {
+        swiper.update();
+        mySwiper.startAutoplay();
+        mySwiper.reLoop();
+      },
     });
+    this.getRecord();
   },
   methods: {
     choiceCollection(e) {
@@ -105,6 +116,72 @@ export default {
       if (e.target.className) {
         r = e.target.className.match(/head-\d/)[0];
       }
+      switch (r) {
+        case "head-0":
+          this.collectionData.index = 0;
+          break;
+        case "head-1":
+          this.collectionData.index = 1;
+          break;
+        case "head-2":
+          this.collectionData.index = 2;
+          break;
+      }
+      this.getCollectionInfo();
+    },
+    getCollectionInfo() {
+      //还需要增加一个判断页数的逻辑
+      let index = this.collectionData.index;
+      let length = this.collectionData.itemData[index].length;
+      if (Math.floor(length / 20) != this.collectionData.page[index]) return;
+      this.collectionData.page[index]++;
+      return this.$http.User['getCollection']({
+        page: this.collectionData.page[index],
+        pageSize: 20,
+        type: index,
+      })
+        .then((res) => {
+          let data = res.data.data;
+          for (const item of data) {
+            this.collectionData.itemData[index].push({
+              imgUrl: item.photo,
+              id: item.collectionId,
+              rowNum: item.rowNum,
+              type: item.type,
+              rowNum: item.rowNum,
+            });
+          }
+        })
+        .catch((res) => {
+          console.log("暂无数据");
+        });
+    },
+     getRecord() {
+      if (this.FootData[this.footPage]) return;
+      return this.$http.User.getRecord({
+        page: this.footPage,
+        pageSize: 5
+      })
+        .then(res => {
+          let data = res.data.data.recordList;
+          this.total = res.data.data.total;
+          let result = [];
+          for (const item of data) {
+            result.push({
+              date: item.time,
+              name: item.title,
+              project: item.column,
+              // url: null, //跳转的页面
+              rowNum: item.rowNum,
+              type: item.type,
+              id: item.typeId
+            });
+          }
+          this.FootData=result;
+        })
+        .catch(res => {
+          console.log("暂无数据");
+        });
     },
   },
 };
@@ -167,10 +244,11 @@ export default {
           height: 1px;
         }
         .collection-head {
+          min-width: 65px;
           background: rgba(154, 141, 112);
-          padding: 0.2rem 0.5rem;
+          padding: 5px;
           border-radius: 10px;
-          font-size: 0.8rem;
+          font-size: 0.5rem;
           letter-spacing: 1px;
         }
         img {
@@ -185,10 +263,17 @@ export default {
       height: 67px;
     }
     .swiper-slide {
+      width: 96px;
+      margin-right: 10px;
       border-radius: 10px;
       text-align: center;
       font-size: 18px;
       background: linear-gradient(rgba(227, 193, 154), rgba(179, 167, 141));
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
   #foot {
@@ -206,12 +291,16 @@ export default {
       }
     }
     .foot-main {
+      font-size: 0.5rem;
       width: 100%;
       table {
         width: 100%;
       }
       th {
         color: rgba(108, 83, 64, 0.5);
+      }
+      tr{
+        margin-bottom:10px;
       }
     }
   }

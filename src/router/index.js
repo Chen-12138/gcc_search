@@ -7,23 +7,23 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: () => import("@/views/login.vue")
+    component: () => import("@/views/login.vue"),
   },
   {
     path: "/404",
     name: "404",
-    component: () => import("@/views/404page.vue")
+    component: () => import("@/views/404page.vue"),
   },
   {
     path: "/",
     name: "index",
-    redirect:"home",
+    redirect: "home",
     component: () => import("@/views/index.vue"),
     children: [
       {
         path: "home",
         name: "首页",
-        component: () => import("@/views/home/index.vue")
+        component: () => import("@/views/home/index.vue"),
       },
       {
         path: "explorer",
@@ -36,21 +36,28 @@ const routes = [
         component: () => import("@/views/collection/collection.vue"),
       },
       {
+        path: "famous",
+        name: "名家大师",
+        component: () => import("@/views/famous/famous.vue"),
+      },
+      {
         path: "culturalProduction",
         name: "文创",
-        component: () => import("@/views/culturalProduction/culturalProduction.vue"),
+        component: () =>
+          import("@/views/culturalProduction/culturalProduction.vue"),
         children: [
           {
             path: "production",
             name: "文创产品",
-            component: () => import("@/views/culturalProduction/production/production.vue")
+            component: () =>
+              import("@/views/culturalProduction/production/production.vue"),
           },
           {
             path: "game",
             name: "游戏",
-            component: () => import("@/views/culturalProduction/game/game.vue")
-          }
-        ]
+            component: () => import("@/views/culturalProduction/game/game.vue"),
+          },
+        ],
       },
       {
         path: "news",
@@ -60,33 +67,33 @@ const routes = [
           {
             path: "academic",
             name: "学术",
-            component: () => import("@/views/news/academic/academic.vue")
-          }
-        ]
+            component: () => import("@/views/news/academic/academic.vue"),
+          },
+        ],
       },
       {
         path: "searchresult",
         name: "搜索结果",
-        component: () => import("@/views/searchresult/searchresult.vue")
+        component: () => import("@/views/searchresult/searchresult.vue"),
       },
       {
         path: "detail",
         name: "详情页",
-        component: () => import("@/views/detail/detail.vue")
+        component: () => import("@/views/detail/detail.vue"),
       },
       {
         path: "user",
         name: "用户中心",
-        component: () => import("@/views/user/user.vue")
-      }
-    ]
-  }
+        component: () => import("@/views/user/user.vue"),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;
