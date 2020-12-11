@@ -23,6 +23,11 @@
         </div>
     </div>
     <div class="production_wrap">
+        <div class="star">
+            <span>收藏</span>
+            <i v-if="!likeStatus" @click="collect" class="fa fa-star-o" aria-hidden="true"></i>
+            <i v-else @click="collect" class="fa fa-star" aria-hidden="true"></i>
+        </div>
         <div class="production_item" v-for="item in list" :key="item.title">
             <div class="photo">
                 <img :src="item.photo" alt="">
@@ -43,10 +48,6 @@
                 <div class="circle6"></div>
                 <div class="circle7"></div>
                 <div class="circle8"></div>
-            </div>
-            <div class="star">
-                <i v-if="!likeStatus" @click="collect" class="fa fa-star-o" aria-hidden="true"></i>
-                <i v-else @click="collect" class="fa fa-star" aria-hidden="true"></i>
             </div>
         </div>
     </div>
@@ -230,12 +231,35 @@ export default {
         
     }
     .production_wrap{
+        position: relative;
         margin: 0 auto;
-        padding-left: 1.375rem;
+        padding-left: 2.125rem;
         padding-right: 1.25rem;
         display: flex;
         flex-wrap: wrap;
         padding-bottom: 4.75rem;
+        .star{
+            position: absolute;
+            left: 6px;
+            padding-right: 5px;
+            padding-top: 3px;
+            padding-bottom: 6px;
+            font-size: 5px;
+            color:#eec4b2;
+            width: 24px;
+            height: 56px;
+            border: 1px solid#eec4b2;
+            border-radius: 5px;
+            text-align: right;
+            .fa-star-o{
+                margin-bottom: 0.25rem;
+                color: #eec4b2;
+            }
+            .fa-star{
+                margin-bottom: 0.25rem;
+                color: #fbae17;
+            }
+        }
         .production_item{
             position: relative;
             width: 9.625rem;
@@ -243,8 +267,9 @@ export default {
             background: rgba(#a44344, 0.55);
             border-radius: 0.625rem;
             margin-bottom: 1rem;
-            &:nth-child(odd){
-                margin-right: 1.25rem;
+            padding-bottom: 10px;
+            &:nth-child(even){
+                margin-right: 0.8rem;
             }
             .photo{
                 margin-top: 0.625rem;
@@ -315,22 +340,6 @@ export default {
                     background:#6c6c60;
                 }
             }
-            .star{
-                text-align: right;
-                .fa-star-o{
-                    margin-right: 0.375rem;
-                    margin-bottom: 0.25rem;
-                    color: #c7b49b;
-                    font-size: 1.375rem;
-                }
-                .fa-star{
-                    margin-right: 0.375rem;
-                    margin-bottom: 0.25rem;
-                    color: #fbae17;
-                    font-size: 1.375rem;
-                }
-            }
-
         }
     }
 }
