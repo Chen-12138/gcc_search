@@ -55,6 +55,6 @@ main{
   top:0;
   width: 100%;
   z-index: 1;
-  background-position: center;
+  background-position: inherit;
   background-size: cover;
 }

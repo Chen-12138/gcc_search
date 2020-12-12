@@ -63,8 +63,9 @@ export default {
   background-image: url("../../assets/images/background/home.jpg");
   height: 100vh;
   color: white;
+  font-size:1rem;
   header {
-    $height: 40px;
+    $height: 2.5rem;
     margin: 1rem auto 0.5rem auto;
     width: fit-content;
     position: relative;
@@ -73,7 +74,7 @@ export default {
     line-height: $height;
     img {
       position: absolute;
-      width: 20px;
+      width: 1.25rem;
       object-fit: cover;
       &:nth-child(1) {
         top: 0;
@@ -97,12 +98,12 @@ export default {
       &:nth-child(5) {
         left: 0;
         top: 50%;
-        transform: translate(calc(-100% - 10px), -50%);
+        transform: translate(calc(-100% - 0.625rem), -50%);
       }
       &:nth-child(6) {
         right: 0;
         top: 50%;
-        transform: translate(calc(100% + 10px), -50%);
+        transform: translate(calc(100% + 0.625rem), -50%);
       }
     }
     p {
@@ -114,36 +115,36 @@ export default {
 
     .recommand {
       display: flex;
-      margin: 16px 16px 24px 16px;
-      padding-top:16px;
+      margin: 1rem 1rem 1.5rem 1rem;
+      padding-top:1rem;
       .photo {
-        width: 172px;
-        height: 172px;
-        border-radius: 10px;
+        width: 10.75rem;
+        height: 10.75rem;
+        border-radius: 0.625rem;
         background: rgba(197, 123, 107, 0.8);
       }
       h1,
       h2 {
         text-align: left;
         color: rgba(253, 253, 253, 0.7);
-        margin-left: max(10px, 4vw);
+        margin-left: max(0.625rem, 4vw);
       }
       h1 {
-        font-size: 15px;
+        font-size: 0.9375rem;
       }
       h2 {
-        font-size: 12px;
+        font-size: 0.75rem;
       }
     }
     section {
       .sort-header {
-        margin-bottom:23px;
+        margin-bottom:1.4375rem;
         text-align: left;
         display: flex;
         align-items: center;
         img {
-          width: 18px;
-          height: 18px;
+          width: 1.125rem;
+          height: 1.125rem;
         }
         p {
           font-size: 1.2rem;
@@ -157,8 +158,8 @@ export default {
           width: 100%;
           align-items: center;
           img {
-            width: 20px;
-            height: 10px;
+            width: 1.25rem;
+            height: 0.625rem;
             object-fit: cover;
             transform: rotate(90deg);
           }
@@ -169,10 +170,10 @@ export default {
 
             p {
             
-              width: 60px;
-              height: 32px;
-              line-height: 30px;
-              border-radius: 5px;
+              width: 3.75rem;
+              height: 2rem;
+              line-height: 1.875rem;
+              border-radius: 0.3125rem;
               border: 1px solid white;
             }
           }
@@ -180,11 +181,11 @@ export default {
 
         .clip-bar {
           width: 100%;
-          height: 13px;
+          height: 0.8125rem;
           // background: url("../../assets/images/bk-2.png");
           background: rgba(253, 253, 253, 0.7);
-          margin-top:11px;
-          margin-bottom:7px;
+          margin-top:0.6875rem;
+          margin-bottom:0.4375rem;
         }
       }
     }

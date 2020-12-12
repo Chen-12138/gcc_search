@@ -28,8 +28,8 @@ service.interceptors.request.use(
     // 是否需要设置 token
     const isToken = (config.headers || {}).isToken === false;
     if (getToken() && !isToken) {
-      config.headers["Authorization"] = '520161ae-6bd9-4f06-9877-a1913f89271c';
-      // config.headers["Authorization"] = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
+      // config.headers["Authorization"] = 'd2fd0bf8-61d7-42ce-b429-ead357ecf6cc';
+      config.headers["Authorization"] = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
     }
     return config;
   },

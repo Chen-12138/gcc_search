@@ -57,7 +57,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .loginPage {
-  background: url(../assets/images/background/登录页.jpg) no-repeat;
+  background-image:url(../assets/images/background/登录页.jpg);
   background-size: cover;
   height: 100vh;
   .divider {
