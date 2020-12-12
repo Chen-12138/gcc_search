@@ -31,7 +31,6 @@
               <img src="@/assets/images/bk.png" alt />
               <p>{{item}}</p>
             </div>
-            <img src="@/assets/images/bk.png" alt />
           </div>
           <div class="clip-bar"></div>
         </div>
@@ -61,7 +60,6 @@ export default {
 <style lang="scss" scoped>
 #collection {
   background-image: url("../../assets/images/background/home.jpg");
-  height: 100vh;
   color: white;
   font-size:1rem;
   header {
@@ -169,7 +167,7 @@ export default {
             align-items: center;
 
             p {
-            
+              font-size:1rem;
               width: 3.75rem;
               height: 2rem;
               line-height: 1.875rem;
@@ -181,9 +179,9 @@ export default {
 
         .clip-bar {
           width: 100%;
-          height: 0.8125rem;
-          // background: url("../../assets/images/bk-2.png");
-          background: rgba(253, 253, 253, 0.7);
+          height: 1.3rem;
+          // background-image:url("../../assets/images/fenge.png");
+          background-size:contain;
           margin-top:0.6875rem;
           margin-bottom:0.4375rem;
         }

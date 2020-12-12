@@ -19,7 +19,10 @@
         />
       </div>
       <div class="main-container" v-if="!isLogin">
-        <i class="fa fa-search" aria-hidden="true"></i>
+        <router-link :to="{ path: 'detail' }">
+          <i class="fa fa-search" aria-hidden="true"></i
+        ></router-link>
+
         <router-link :to="{ path: 'user' }"
           ><i class="fa fa-user" aria-hidden="true"></i
         ></router-link>
@@ -64,7 +67,7 @@ export default {
       let setting = {
         color: {
           black: ["名家大师", "login", "用户中心"],
-          white: ["首页", "藏品", "历史", "探索"],
+          white: ["首页", "藏品", "历史", "探索","详情页"],
         },
         qrCode: {
           show: ["首页"],
