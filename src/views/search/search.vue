@@ -8,7 +8,9 @@
         </div>
     </div>
     <div class="match">
-        <div class="match_item" v-for="item in resultList" :key="item.porcelainId">
+        <div class="match_item" v-for="item in resultList" :key="item.porcelainId"
+        @click="handleToDetail(item.porcelainId,item.name)"
+        >
             <img src="@/assets/images/bk.png" />
             <span v-hightlight:[item.name]="keyword">{{item.name}}</span>
         </div>
@@ -66,6 +68,16 @@ export default {
         // 返回上一页
         handleBack(){
             this.$router.back()
+        },
+        // 跳转详情页
+        handleToDetail(id,name) {
+            this.saveSearchHistory(name)
+            this.$router.push({
+                name: '详情页',
+                query: {
+                    porcelainId : id
+                }
+            })
         },
         // 搜索
         search() {

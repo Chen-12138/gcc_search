@@ -228,8 +228,8 @@ export default {
                         margin-right: 0.375rem;
                         width: 8.125rem;
                         height: 7.375rem;
-                        border: 0.0625rem dashed #fff;
-                        border-radius: 0.625rem;
+                        // border: 0.0625rem dashed #fff;
+                        border-radius: .5rem;
                         overflow: hidden;
                         img{
                             width: 100%;
@@ -383,8 +383,8 @@ export default {
                         margin-right: 0.5625rem;
                         width: 8.125rem;
                         height: 7.375rem;
-                        border: 0.0625rem dashed #fff;
-                        border-radius: 0.625rem;
+                        // border: 0.0625rem dashed #fff;
+                        border-radius: .5rem;
                         overflow: hidden;
                         img{
                             width: 100%;

@@ -29,6 +29,9 @@
                         <!-- 《从广彩瓷器看海丝路上的粤商》  何东红  -->
                     </div>
                     <div class="main">
+                        <div class="btn" @click="getDownload(item.academicId,item.title)">
+                            <span>下载</span>
+                        </div>
                         <span class="zhaiyao">摘要：</span>
                         <p class="neirong">
                             {{item.content}}
@@ -113,6 +116,10 @@ export default {
             this.getLike(id)
             this.$set(this.likeStatus,index,!this.likeStatus[index])
         },
+        // 获取文献下载链接
+        async getDownload(id,filename) {
+            window.open('http://47.102.155.74:10808/color_porcelain/academic/download?academicId=' + id)
+        },
     }
 }
 </script>
@@ -187,8 +194,9 @@ export default {
             .photo{
                 width: 19rem;
                 height: 12.1875rem;
-                border: 0.0625rem dashed #fff;
+                // border: 0.0625rem dashed #fff;
                 border-radius: 0.625rem;
+                overflow: hidden;
                 img{
                     width: 100%;
                     height: 100%;
@@ -208,6 +216,7 @@ export default {
                     padding-bottom: 1.875rem;
                 }
                 .main{
+                    position: relative;
                     width: 17.625rem;
                     text-align: justify;
                     font-size: 0.9375rem;
@@ -215,6 +224,21 @@ export default {
                     font-weight: 400;
                     color: #E6E6E6;
                     line-height: 1.25rem;
+                    .btn{
+                        position: absolute;
+                        top: -6px;
+                        right: 0;
+                        width: 60px;
+                        height: 25px;
+                        // background: rgba(#9f1f1c, 0.55);
+                        background: #9f1f1c;
+                        border-radius: 6px;
+                        border: 1px soli#E6E6E6;
+                        display: flex;
+                        font-size: 12px;
+                        justify-content: center;
+                        align-items: center;
+                    }
                     p{
                         font-size: 0.875rem;
                     }

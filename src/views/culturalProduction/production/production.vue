@@ -277,8 +277,9 @@ export default {
                 margin-bottom: 0.375rem;
                 width: 6.25rem;
                 height: 7.875rem;
-                border-radius: 0.625rem;
-                border: 0.0625rem dashed #e4c292;
+                border-radius: .25rem;
+                // border: 0.0625rem dashed #e4c292;
+                overflow: hidden;
                 img{
                     width: 100%;
                     height: 100%;
