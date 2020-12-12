@@ -34,7 +34,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-               <router-link :to="{path:'home'}">名家大师</router-link>
+            <router-link :to="{name:'名家大师'}">名家大师</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>

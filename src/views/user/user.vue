@@ -109,6 +109,7 @@ export default {
       },
     });
     this.getRecord();
+    this.getCollectionInfo();
   },
   methods: {
     choiceCollection(e) {

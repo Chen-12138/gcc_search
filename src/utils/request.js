@@ -19,7 +19,7 @@ service.interceptors.request.use(
     // 是否需要设置 token
     // const isToken = (config.headers || {}).isToken === false;
     // if (getToken() && !isToken) {
-      config.headers["Authorization"] = 'c5c5dfdf-187e-4ab3-a146-d1d4aec2264a';
+      config.headers["Authorization"] = 'd2fd0bf8-61d7-42ce-b429-ead357ecf6cc';
       // config.headers["Authorization"] = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
     // }
     return config;
