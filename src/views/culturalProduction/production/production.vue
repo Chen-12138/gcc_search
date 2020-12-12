@@ -138,6 +138,7 @@ export default {
 <style lang="scss" scoped>
 #production{
     background-image: url('../../../assets/images/background/历史_历史.jpg');
+    height: 100vh;
     .title{
         padding-left: 1.5rem;
         padding-right: 1.25rem;
@@ -237,19 +238,18 @@ export default {
         padding-right: 1.25rem;
         display: flex;
         flex-wrap: wrap;
-        padding-bottom: 4.75rem;
         .star{
             position: absolute;
-            left: 6px;
-            padding-right: 5px;
-            padding-top: 3px;
-            padding-bottom: 6px;
-            font-size: 5px;
+            left: 0.375rem;
+            padding-right: 0.3125rem;
+            padding-top: 0.1875rem;
+            padding-bottom: 0.375rem;
+            font-size: 0.3125rem;
             color:#eec4b2;
-            width: 24px;
-            height: 56px;
-            border: 1px solid#eec4b2;
-            border-radius: 5px;
+            width: 1.5rem;
+            height: 3.5rem;
+            border: 0.0625rem solid#eec4b2;
+            border-radius: 0.3125rem;
             text-align: right;
             .fa-star-o{
                 margin-bottom: 0.25rem;
@@ -267,7 +267,7 @@ export default {
             background: rgba(#a44344, 0.55);
             border-radius: 0.625rem;
             margin-bottom: 1rem;
-            padding-bottom: 10px;
+            padding-bottom: 0.625rem;
             &:nth-child(even){
                 margin-right: 0.8rem;
             }

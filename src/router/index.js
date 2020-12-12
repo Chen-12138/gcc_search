@@ -84,10 +84,15 @@ const routes = [
       {
         path: "user",
         name: "用户中心",
-        component: () => import("@/views/user/user.vue"),
+        component: () => import("@/views/user/user.vue")
       },
-    ],
-  },
+      {
+        path: "search",
+        name: "搜索",
+        component: () => import("@/views/search/search.vue"),
+      },
+    ]
+  }
 ];
 
 const router = new VueRouter({

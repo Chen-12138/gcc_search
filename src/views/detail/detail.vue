@@ -1,134 +1,82 @@
 <template>
   <div id="detail">
-    <header>
-      <div class="return-btn">返回</div>
-    </header>
-    <main>
+    <div class="title">
+      <div class="return_back"><span>返回</span></div>
+    </div>
+    <div class="main">
       <div class="head">
-        <header>
-          <p>标题</p>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-        </header>
-        <section>这里似乎是放一个图？</section>
+        <span class="name">标题</span>
+        <div class="star">
+            <i class="fa fa-star-o" aria-hidden="true" @click="collect(item.gameId,index)"></i>
+            <!-- <i  aria-hidden="true" @click="collect(item.gameId,index)"></i> -->
+        </div>
       </div>
-      <div class="recommend">
-        <section>
-          <div class="recommend-head">诗词描述</div>
-          <article>放置描述信息</article>
-        </section>
-        <section>
-          <div class="recommend-head">元素寓意</div>
-          <article>放置描述信息</article>
-        </section>
-        <section>
-          <div class="recommend-head">基本信息</div>
-          <article>
-            <div class="double-col-box">
-              <div class="col">
-                <p>xxx</p>
-                <p>xxxx</p>
-                <p>xxxx</p>
-              </div>
-              <div class="col">
-                <p>xxx</p>
-                <p>xxx</p>
-                <p>xxxxxxxx</p>
-              </div>
-            </div>
-          </article>
-        </section>
-        <section>
-          <div class="recommend-head">边饰元素</div>
-          <article>
-            <div class="double-col-box">
-              <div class="col">
-                <p>xxx</p>
-                <p>xxxx</p>
-                <p>xxxx</p>
-              </div>
-              <div class="col">
-                <p>xxx</p>
-                <p>xxx</p>
-                <p>xxxxxxxxxx</p>
-              </div>
-            </div>
-          </article>
-        </section>
+      <div class="photo">
+        <img src="" alt="">
       </div>
-    </main>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "",
-  data() {
-    return {};
-  },
-  components: {},
-  mounted() {},
-  methods: {},
-};
+
+}
 </script>
 
-<style lang='scss' scoped>
-#detail {
+<style lang="scss" scoped>
+#detail{
   background-image: url("../../assets/images/background/home.jpg");
-  text-align: left;
-  color: white;
-  header {
-    .return-btn {
-      width: fit-content;
-      background: rgba(255, 255, 255, 0.3);
-      padding: 0.2rem 1.5rem;
-      border-radius: 1rem;
-      margin: 0 max(5vw, 0.5rem);
+  .title{
+    margin: 0 10px;
+    border-top: 1px solid #e2a995;
+    margin-bottom: 7px;
+    .return_back{
+      margin-top: 13px;
+      margin-left: 6.5px;
+      width: 61.5px;
+      height: 22px;
+      background: #d99a82;
+      border-radius: 10px;
+      span{
+        color: #f9e3d7;
+        font-size: 12px;
+        line-height: 22px;
+      }
     }
   }
-  main {
-    padding-top: 1.5rem;
-    margin-top: 1.5rem;
+  .main{
+    margin: 0 auto;
+    width: 356.5px;
+    height: 500px;
+    background: rgba(#a44344, 0.55);
     border-radius: 10px;
-    background: rgba(255, 60, 0, 0.3);
-    .head {
-      header {
-        font-size: 1.5rem;
-        display: flex;
-        justify-content: space-between;
+    .head{
+      display: flex;
+      justify-content: space-between;
+      padding-top: 16px;
+      padding-left: 18.5px;
+      padding-right: 7px;
+      margin-bottom: 40px;
+      span{
+        color: #fff;
+        font-size: 18px;
       }
-      section {
-        width: 60vw;
-        height: 60vw;
-        border: 1px solid white;
-        margin: 1rem auto;
+      .star{
+          text-align: right;
+          margin-right: 0.5rem;
+          .fa-star-o{
+              color: #e6e6e6;
+              font-size: 1.375rem;
+          }
+          .fa-star{
+              color: #fbae17;
+              font-size: 1.375rem;
+          }
       }
     }
-    .recommend {
-      section {
-        .recommend-head {
-          width: fit-content;
-          padding: 0.3rem 1rem;
-          background: rgba(159, 31, 28);
-          border-radius: 1rem;
-          border: 1px solid white;
-        }
-        article {
-          margin: 0.5rem auto 1.5rem auto;
-          text-align: center;
-          .double-col-box {
-            text-align: left;
-            display: flex;
-            .col {
-              width: 50%;
-              padding-left: 20%;
-              overflow: hidden;
-            }
-            .col:nth-child(1) {
-              padding-left: 30%;
-            }
-          }
-        }
-      }
+    .photo{
+
     }
   }
 }

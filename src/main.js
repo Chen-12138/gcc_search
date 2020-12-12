@@ -18,6 +18,34 @@ Vue.use(VueVideoPlayer)
 Vue.config.productionTip = false
 Vue.prototype.$http = http;
 
+// vant
+import {Search} from 'vant'
+
+Vue.use(Search)
+
+// 搜索红字指令
+function hightLight(el, binding) {
+  const match = binding.value;
+  const reg = new RegExp(match, 'g')
+  const txt = binding.arg
+  let str = '';
+  if (txt) {
+    str = txt.replace(reg, `<span style="color:#fff">${match}</span>`)
+  } else {
+    str = ''
+  }
+  el.innerHTML = str;
+}
+ 
+Vue.directive('hightlight', {
+  bind(el, binding) {
+    hightLight(el, binding)
+  },
+  componentUpdated(el, binding) {
+    hightLight(el, binding)
+  }
+})
+
 new Vue({
   router,
   store,

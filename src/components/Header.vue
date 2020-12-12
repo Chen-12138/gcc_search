@@ -19,7 +19,7 @@
         />
       </div>
       <div class="main-container" v-if="!isLogin">
-        <router-link :to="{ path: 'detail' }">
+        <router-link :to="{ name: '搜索' }">
           <i class="fa fa-search" aria-hidden="true"></i
         ></router-link>
 

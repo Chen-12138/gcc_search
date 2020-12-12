@@ -485,7 +485,7 @@ export default {
             .point{
                 position: absolute;
                 top: 7.125rem;
-                right: 0.5rem;
+                left: 0.5rem;
                 div{
                     width: 0.4375rem;
                     height: 0.4375rem;
