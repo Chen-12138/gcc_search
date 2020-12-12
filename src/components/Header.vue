@@ -1,10 +1,9 @@
 <template>
   <header id="header" :class="colorStyle">
     <div class="wrapper">
-      <div class="menu" @click="link">
+      <div class="menu" @click="link" v-if="!isLogin">
         <div class="menu-icon">
           <i class="fa fa-align-justify" aria-hidden="true"></i>
-          
         </div>
       </div>
       <div class="image-container">
@@ -19,10 +18,11 @@
           v-if="colorStyle == 'black_header'"
         />
       </div>
-      <div class="main-container">
-     
+      <div class="main-container" v-if="!isLogin">
         <i class="fa fa-search" aria-hidden="true"></i>
-        <router-link :to="{path:'user'}"><i class="fa fa-user" aria-hidden="true"></i></router-link>
+        <router-link :to="{ path: 'user' }"
+          ><i class="fa fa-user" aria-hidden="true"></i
+        ></router-link>
       </div>
     </div>
     <p>Catonese color culture</p>
@@ -52,14 +52,19 @@ export default {
       });
     },
   },
+  computed: {
+    isLogin() {
+      return this.$route.name === "login";
+    },
+  },
   watch: {
     $route: function (val) {
       //这里可以用职责链||组合模式来完成渲染
       let name = val.name;
       let setting = {
         color: {
-          black: ["首页", "名家大师", "login", "用户中心"],
-          white: ["藏品", "历史", "探索"],
+          black: ["名家大师", "login", "用户中心"],
+          white: ["首页", "藏品", "历史", "探索"],
         },
         qrCode: {
           show: ["首页"],

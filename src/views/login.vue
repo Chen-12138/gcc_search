@@ -1,5 +1,5 @@
 <template>
-  <div class="loginPage">
+  <div class="loginPage page">
     <div class="divider"></div>
     <div class="body">
       <div class="fill"></div>
@@ -59,7 +59,7 @@ export default {
 .loginPage {
   background: url(../assets/images/background/登录页.jpg) no-repeat;
   background-size: cover;
-  height: 100%;
+  height: 100vh;
   .divider {
     background-image: url(../assets/images/bk.png);
     background-size: auto, 1.0625rem;
