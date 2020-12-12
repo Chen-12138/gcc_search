@@ -197,25 +197,25 @@ export default {
     display: flex;
     align-items: center;
     width: fit-content;
-    margin: 30px auto 15px auto;
+    margin: 1.875rem auto 0.9375rem auto;
     #headPortrait {
       border: 1px solid rgba(164, 67, 68, 0.3);
       border-radius: 50%;
-      padding: 10px;
+      padding: 0.625rem;
       img {
         object-fit: cover;
-        width: 57px;
-        height: 57px;
+        width: 3.5625rem;
+        height: 3.5625rem;
       }
     }
     .main-info {
       text-align: left;
-      margin-left: max(5px, 5vw);
+      margin-left: max(0.3125rem, 5vw);
       .info-item {
         font-size: 0.8rem;
         padding: 0.25rem 0.5rem;
-        margin-bottom: max(5px, 1vh);
-        min-width: 150px;
+        margin-bottom: max(0.3125rem, 1vh);
+        min-width: 9.375rem;
         background: rgba(232, 231, 220, 1);
         border-radius: 1rem;
       }
@@ -223,8 +223,8 @@ export default {
   }
   main {
     background: rgba(255, 255, 255, 0.6);
-    padding-top: 18px;
-    border-radius: 10px;
+    padding-top: 1.125rem;
+    border-radius: 0.625rem;
     min-height: 60vh;
     #collection {
       color: white;
@@ -235,40 +235,40 @@ export default {
         justify-content: space-between;
         align-items: center;
         position: relative;
-        padding: 0 8px;
+        padding: 0 0.5rem;
         #selectbar {
           position: absolute;
           left: 0;
-          bottom: -1px;
+          bottom: -0.0625rem;
           background: #a44344;
           width: 4rem;
-          height: 1px;
+          height: 0.0625rem;
         }
         .collection-head {
-          min-width: 65px;
+          min-width: 4.0625rem;
           background: rgba(154, 141, 112);
-          padding: 5px;
-          border-radius: 10px;
+          padding: 0.3125rem;
+          border-radius: 0.625rem;
           font-size: 0.5rem;
-          letter-spacing: 1px;
+          letter-spacing: 0.0625rem;
         }
         img {
-          width: 20px;
+          width: 1.25rem;
           object-fit: cover;
           // align-self: flex-end;
         }
       }
     }
     .swiper-container {
-      width: calc(100% - 30px);
-      height: 67px;
+      width: calc(100% - 1.875rem);
+      height: 4.1875rem;
     }
     .swiper-slide {
-      width: 96px;
-      margin-right: 10px;
-      border-radius: 10px;
+      width: 6rem;
+      margin-right: 0.625rem;
+      border-radius: 0.625rem;
       text-align: center;
-      font-size: 18px;
+      font-size: 1.125rem;
       background: linear-gradient(rgba(227, 193, 154), rgba(179, 167, 141));
       img {
         width: 100%;
@@ -278,17 +278,19 @@ export default {
     }
   }
   #foot {
-    margin: 20px 0;
+    margin: 1.25rem 0;
+    font-size: 1rem;
     .foot-head {
       display: flex;
       text-align: left;
-      border-bottom: 1px solid white;
-      margin-bottom: 10px;
-      padding-bottom: 3px;
+      border-bottom: 0.0625rem solid white;
+      margin-bottom: 0.625rem;
+      padding-bottom: 0.1875rem;
+      align-items: center;
       img {
-        margin-right: max(10px, 1vw);
-        width: 1.3rem;
-        object-fit: cover;
+        margin-right: max(0.625rem, 1vw);
+        width:1.25rem;
+        height:1.3125rem;
       }
     }
     .foot-main {
@@ -301,7 +303,7 @@ export default {
         color: rgba(108, 83, 64, 0.5);
       }
       tr{
-        margin-bottom:10px;
+        margin-bottom:0.625rem;
       }
     }
   }

@@ -1,15 +1,15 @@
 <template>
-  <div>
-    我是首页~~~
-  </div>
+  <div class="home"></div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.home {
+  background: url(../../assets/images/background/登录页.jpg) no-repeat;
+  background-size: cover;
+  height: 100%;
+}
 </style>

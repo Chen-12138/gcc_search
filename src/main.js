@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import 'amfe-flexible';
 
 //font-awesome
 import '@/assets/css/common.css'

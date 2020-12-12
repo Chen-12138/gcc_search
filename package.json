@@ -7,13 +7,16 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "animatejs": "^1.0.1",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
     "good-storage": "^1.1.1",
     "js-cookie": "^2.2.1",
+    "postcss-pxtorem": "^5.1.1",
     "swiper": "^6.4.1",
+    "vant": "^2.11.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vue-video-player": "^5.0.2",
@@ -24,6 +27,7 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "babel-plugin-import": "^1.13.3",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"

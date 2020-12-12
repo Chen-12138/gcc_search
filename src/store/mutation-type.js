@@ -2,4 +2,4 @@
 export const SET_SEARCH_HISTORY = 'SET_SEARCH_HISTORY'
 export const SET_TOKEN = 'SET_TOKEN'
 export const SET_USER = 'SET_USER'
-export const SET_ISFIRST = 'SET_ISFIRST'
+export const RESET_STATE = 'RESET_STATE'

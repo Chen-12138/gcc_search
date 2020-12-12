@@ -145,6 +145,7 @@ export default {
       overflow: hidden;
       transition: 0.5s;
       .open-btn {
+        font-size: 1rem;
         margin-left: 10px;
         margin-top: 10px;
         height: 1rem;
