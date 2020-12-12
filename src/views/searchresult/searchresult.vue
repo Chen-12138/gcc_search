@@ -1,5 +1,5 @@
 <template>
-  <div id="searchresult" class="page">
+  <div id="searchresult" class="page" @click="cancelFloat">
       <div class="title">
           <div class="searchInput">
               <i class="fa fa-search" aria-hidden="true"></i>
@@ -9,9 +9,13 @@
           <div class="tags">
               <div class="tag_item" v-for="item in types" :key="item.value"
                 :class="type === item.value ? 'active' : ''"
-                @click="changeType(item.value)">
+                @click="changeType(item.value)"
+               >
                   {{item.type}}
-                  <div class="float">
+                  <div class="icon" v-if="(type === item.value)">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </div>
+                  <div class="float" v-if="(type === item.value) && open==true">
                       <ul>
                         <li v-for="v in item.recommend" :key="v"
                         @click="changeKeyword(v, item.value)"
@@ -55,6 +59,7 @@ export default {
     },
     data(){
         return{
+            open:true,
             // 当前分类
             type: 1,
             // 搜索分类
@@ -141,10 +146,19 @@ export default {
             this.keyword = keyword
         }
         this.getByInput()
+     
     },
     methods:{
+        cancelFloat(e){
+            let el=e.target;
+            if(el.className.indexOf('tag_item')!=-1)return;
+            else{
+              this.open=false;
+            }
+        },
         // 改变分类
         changeType(type) {
+            this.open=true;
             this.type = type
             // this.getByClick()
         },
@@ -284,6 +298,13 @@ export default {
                 border: 1px solid #edcab2;
                 margin-left: 8px;
                 color: #f9e3d7;
+                .icon{
+                 color: #f9e3d7;
+                 position: absolute;
+                 left:50%;
+                 top:100%;
+                 transform: translate(-50%,-20%);
+                }
                 &.active{
                     width: 45px;
                     height: 16px;
@@ -295,30 +316,6 @@ export default {
                         opacity: 1;
                         visibility: visible;
                     }
-                }
-                &::before{
-                    content: '';
-                    display: block;
-                    // width: 100%;
-                    // height: 100%;
-                    position: absolute;
-                    top: 13px;
-                    border-left: 5px solid transparent;
-                    border-right: 5px solid transparent;
-                    border-top: 5px solid  #fff;
-                    z-index: 2;
-                }
-                &::after{
-                    content: '';
-                    display: block;
-                    // width: 100%;
-                    // height: 100%;
-                    position: absolute;
-                    top: 14px;
-                    border-left: 6px solid transparent;
-                    border-right: 6px solid transparent;
-                    border-top: 6px solid  #edcab2;
-                    z-index: 1;
                 }
                 .float{
                     position: absolute;
