@@ -33,15 +33,22 @@
         <div class="swiper-wrapper">
           <div
             class="swiper-slide"
-            v-for="(item,index) in collectionData.itemData[collectionData.index]"
+            v-for="(item, index) in collectionData.itemData[
+              collectionData.index
+            ]"
             :key="item.key"
           >
-            <img :src="item.imgUrl" @click="link(collectionData.itemData[collectionData.index][index])" />
+            <img
+              :src="item.imgUrl"
+              @click="
+                link(collectionData.itemData[collectionData.index][index])
+              "
+            />
           </div>
-          <p v-if="collectionData.itemData[collectionData.index].length==0">这里还空空如也，甚至生了草</p>
+          <p v-if="collectionData.itemData[collectionData.index].length == 0">
+            这里还空空如也，甚至生了草
+          </p>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
       </div>
       <div id="foot">
         <div class="foot-head">
@@ -55,10 +62,14 @@
               <th>所属项目</th>
               <th>访问时间</th>
             </tr>
-            <tr v-for="(item,index) in FootData" :key="item.key" @click="link(FootData[index])">
-              <td>{{item.name}}</td>
-              <td>{{item.project}}</td>
-              <td>{{item.date}}</td>
+            <tr
+              v-for="(item, index) in FootData"
+              :key="item.key"
+              @click="link(FootData[index])"
+            >
+              <td>{{ item.name }}</td>
+              <td>{{ item.project }}</td>
+              <td>{{ item.date }}</td>
             </tr>
           </table>
         </div>
@@ -80,9 +91,7 @@ export default {
         id: "a1163675107",
         accounts: "某时橙",
       },
-      FootData: [
-
-      ],
+      FootData: [],
       footPage: 1,
       total: null,
       collectionData: {
@@ -93,30 +102,32 @@ export default {
     };
   },
   components: {},
-  mounted() {
-    let swiper = new Swiper(".swiper-container", {
+  async mounted() {
+    this.getRecord();
+    await this.getCollectionInfo();
+    //发现一个bug,如果用户窗口更改的话，可能会导致swiper难以滑动
+    let mySwiper = new Swiper(".swiper-container", {
       slidesPerView: 3,
       spaceBetween: 10,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
       observer: true, //修改swiper自己或子元素时，自动初始化swiper
-      observeParents: false, //修改swiper的父元素时，自动初始化swiper
+      observeParents: true, //修改swiper的父元素时，自动初始化swiper
+      updateTranslate: true,
       onSlideChangeEnd: function (swiper) {
         swiper.update();
         mySwiper.startAutoplay();
         mySwiper.reLoop();
       },
+      on: {
+        resize: function () {
+          this.update(); //窗口变化时，更新Swiper的一些属性，如宽高等
+        },
+      },
     });
-    this.getRecord();
-    this.getCollectionInfo();
-
   },
   methods: {
-    link: function(data) {
+    link: function (data) {
       linkTo.call(this, data.type, {
-        id: data.id
+        id: data.id,
       });
     },
     choiceCollection(e) {
@@ -143,7 +154,7 @@ export default {
       let length = this.collectionData.itemData[index].length;
       if (Math.floor(length / 20) != this.collectionData.page[index]) return;
       this.collectionData.page[index]++;
-      return this.$http.User['getCollection']({
+      return this.$http.User["getCollection"]({
         page: this.collectionData.page[index],
         pageSize: 20,
         type: index,
@@ -164,13 +175,13 @@ export default {
           console.log("暂无数据");
         });
     },
-     getRecord() {
+    getRecord() {
       if (this.FootData[this.footPage]) return;
       return this.$http.User.getRecord({
         page: this.footPage,
-        pageSize: 5
+        pageSize: 5,
       })
-        .then(res => {
+        .then((res) => {
           let data = res.data.data.recordList;
           this.total = res.data.data.total;
           let result = [];
@@ -182,12 +193,12 @@ export default {
               // url: null, //跳转的页面
               rowNum: item.rowNum,
               type: item.type,
-              id: item.typeId
+              id: item.typeId,
             });
           }
-          this.FootData=result;
+          this.FootData = result;
         })
-        .catch(res => {
+        .catch((res) => {
           console.log("暂无数据");
         });
     },
@@ -297,9 +308,9 @@ export default {
       align-items: center;
       img {
         margin-right: max(0.625rem, 1vw);
-            margin-left: max(0.5rem, 1vw);
-        width:1.25rem;
-        height:1.3125rem;
+        margin-left: max(0.5rem, 1vw);
+        width: 1.25rem;
+        height: 1.3125rem;
       }
     }
     .foot-main {
@@ -311,8 +322,8 @@ export default {
       th {
         color: rgba(108, 83, 64, 0.5);
       }
-      tr{
-        margin-bottom:0.625rem;
+      tr {
+        margin-bottom: 0.625rem;
       }
     }
   }
