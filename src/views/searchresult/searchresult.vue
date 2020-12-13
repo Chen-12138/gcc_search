@@ -31,7 +31,14 @@
           <div class="result_item" v-for="item in resultList" :key="item.porcelainId">
               <div class="main">
                 <div class="photo" @click="handleToDetail(item.porcelainId)">
-                    <img :src="item.photos[0]">
+                    <van-image :src="item.photos[0]" class="img">
+                        <template v-slot:loading style=font-size:24px;>
+                            <!-- <van-loading type="spinner" size="20" /> -->
+                            加载中...
+                        </template>
+                        <template v-slot:error>加载失败</template>
+                    </van-image>
+                    <!-- <img :src="item.photos[0]"> -->
                 </div>
                 <div class="text">
                     <div class="name">
@@ -323,12 +330,13 @@ export default {
                     width: 40px;
                     // height: 98px;
                     background: #edcab2;
-                    font-size: 8px;
+                    font-size: 9px;
                     color: #4C3E2B;
                     border-radius: 6px;
                     visibility: hidden;
                     li{
-                        height: 14px;
+                        padding: 2px 0;
+                        height: 20px;
                     }
                 }
             }
@@ -355,9 +363,10 @@ export default {
                     margin-left: 7px;
                     width: 149px;
                     height: 168px;
-                    border: 1px dashed #eec4b2;
-                    border-radius: 10px;
-                    img{
+                    border: 1px solid#eec4b2;
+                    overflow: hidden;
+                    border-radius: 5px;
+                    .img{
                         width: 100%;
                         height: 100%;
                     }

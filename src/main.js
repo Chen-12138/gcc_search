@@ -19,9 +19,11 @@ Vue.config.productionTip = false
 Vue.prototype.$http = http;
 
 // vant
-import {Search} from 'vant'
+import {Image as VanImage} from 'vant'
+// import {ImagePreview} from 'vant'
 
-Vue.use(Search)
+Vue.use(VanImage);
+// Vue.use(ImagePreview);
 
 // 搜索红字指令
 function hightLight(el, binding) {

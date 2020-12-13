@@ -114,11 +114,12 @@ export default {
                 let List = res.data.data.porcelainList
                 let match = this.keyword
                 let reg = new RegExp(match,'g')
-                for(var i = 0;i<List.length;i++){
-                    if(!List[i].name.match(reg)){
-                        List.splice(i,1)
-                    }
-                }
+                // for(var i = 0;i<List.length;i++){
+                //     if(!List[i].name.match(reg)){
+                //         List.splice(i,1)
+                //     }
+                // }
+                List = List.filter(item=>item.name.match(reg))
                 this.resultList = List
                 } catch(error) {
                     this.resultList = []

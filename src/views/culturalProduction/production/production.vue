@@ -28,9 +28,16 @@
             <i v-if="!likeStatus" @click="collect" class="fa fa-star-o" aria-hidden="true"></i>
             <i v-else @click="collect" class="fa fa-star" aria-hidden="true"></i>
         </div>
-        <div class="production_item" v-for="item in list" :key="item.title">
+        <div class="production_item" v-for="(item,index) in list" :key="item.title">
             <div class="photo">
-                <img :src="item.photo" alt="">
+                <van-image :src="item.photo" class="img" @click="handleImagePreview(index)">
+                    <template v-slot:loading style=font-size:24px;>
+                        <!-- <van-loading type="spinner" size="20" /> -->
+                        加载中...
+                    </template>
+                    <template v-slot:error>加载失败</template>
+                </van-image>
+                <!-- <img :src="item.photo" alt=""> -->
             </div>
             <div class="name">
                 {{item.name}}
@@ -55,6 +62,7 @@
 </template>
 
 <script>
+import { ImagePreview } from 'vant'
 export default {
     data(){
         return{
@@ -90,13 +98,25 @@ export default {
             // 收藏状态
             likeStatus: false,
             // 数据
-            list: []
+            list: [],
+            // 图片预览数组
+            srcList:[]
         }
     },
     mounted(){
         this.getProduction()
     },
     methods:{
+        // 处理图片放大预览
+        handleImagePreview(index){
+            ImagePreview({
+                images:[
+                ...this.srcList
+                ],
+                closeable: true,
+                startPosition: index,
+            })
+        },
         // 改变分类
         changeType(type) {
         // console.log(type)
@@ -110,6 +130,10 @@ export default {
                     type: this.type
                 })
                 this.list = res.data.data
+                this.srcList = []
+                this.list.map(item=>{
+                    this.srcList.push(item.photo)
+                })
                 this.likeStatus = res.data.data[0].isCollected
                 // console.log(res)
             } catch(error) {
@@ -280,7 +304,7 @@ export default {
                 border-radius: .25rem;
                 // border: 0.0625rem dashed #e4c292;
                 overflow: hidden;
-                img{
+                .img{
                     width: 100%;
                     height: 100%;
                 }
