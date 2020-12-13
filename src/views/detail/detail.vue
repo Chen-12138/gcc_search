@@ -12,7 +12,14 @@
         </div>
       </div>
       <div class="photo">
-        <img :src="detail.photos[0]" alt="">
+        <van-image :src="detail.photos[0]" class="img" @click="handleImagePreview">
+            <template v-slot:loading style=font-size:24px;>
+                <!-- <van-loading type="spinner" size="20" /> -->
+                加载中...
+            </template>
+            <template v-slot:error>加载失败</template>
+        </van-image>
+        <!-- <img :src="detail.photos[0]" alt=""> -->
       </div>
       <div class="poemDesc">
         <div class="btn">
@@ -169,6 +176,7 @@
 </template>
 
 <script>
+import { ImagePreview } from 'vant'
 export default {
   data(){
     return{
@@ -178,6 +186,8 @@ export default {
       detail: {},
       // 收藏状态
       likeStatus: false,
+      // 图片预览数组
+      srcList:[]
     }
   },
   mounted(){
@@ -189,6 +199,15 @@ export default {
     this.getDetail()
   },
   methods:{
+    // 处理图片放大预览
+    handleImagePreview(){
+      ImagePreview({
+        images:[
+          ...this.srcList
+        ],
+        closeable: true
+      })
+    },
     // 返回上一页
     handleBack(){
         this.$router.back()
@@ -200,6 +219,7 @@ export default {
                 porcelainId: this.id
             })
             this.detail = res.data.data
+            this.srcList = this.detail.photos
             this.likeStatus = this.detail.isCollected
             console.log(res);
         } catch(error) {
@@ -284,10 +304,11 @@ export default {
       width: 230px;
       height: 230px;
       border: 1px solid#eec4b2;
-      border-radius: 10px;
+      border-radius:4px;
       margin: 0 auto;
-      margin-bottom: 12.5px;
-      img{
+      margin-bottom: 14px;
+      overflow: hidden;
+      .img{
         height: 100%;
         width: 100%;
       }

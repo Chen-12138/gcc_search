@@ -21,7 +21,14 @@
                     <img src="@/assets/images/hua.png" alt="">
                 </div>
                 <div class="photo">
-                    <img :src="item.photo" alt="">
+                    <van-image :src="item.photo" class="img" @click="handleImagePreview(index)">
+                        <template v-slot:loading style=font-size:24px;>
+                            <!-- <van-loading type="spinner" size="20" /> -->
+                            加载中...
+                        </template>
+                        <template v-slot:error>加载失败</template>
+                    </van-image>
+                    <!-- <img :src="item.photo" alt=""> -->
                 </div>
                 <div class="text">
                     <div class="title">
@@ -49,6 +56,8 @@
 </template>
 
 <script>
+import { ImagePreview } from 'vant'
+import {scrollTo} from '@/utils/jump'
 import Pagination from '@/components/Pagination.vue'
 export default {
     components:{
@@ -68,12 +77,32 @@ export default {
             academicList: [],
             // 储存收藏状态
             likeStatus: [],
+            // 图片预览数组
+            srcList:[]
         }
     },
-    mounted(){
-        this.getAcademic();
+    async mounted(){
+        if(this.$route.query.number){
+            this.page = parseInt((this.$route.query.number-1)/this.pageSize) + 1
+            this.id = this.$route.query.id
+        } else if (this.$route.query.id){
+            this.page = parseInt((this.$route.query.id-1)/this.pageSize) + 1
+            this.id = this.$route.query.id
+        }
+        await this.getAcademic();
+        scrollTo()
     },
     methods:{
+        // 处理图片放大预览
+        handleImagePreview(index){
+            ImagePreview({
+                images:[
+                ...this.srcList
+                ],
+                closeable: true,
+                startPosition: index,
+            })
+        },
         // 页数切换时
         pagechange(value){
             this.page = value
@@ -89,9 +118,10 @@ export default {
                 // console.log(res)
                 this.academicList = res.data.data.academicList
                 // console.log(this.academicList)
-                this.total = res.data.data.total - 4
+                this.total = res.data.data.total
                 // 存储收藏信息
                 this.likeStatus = []
+                this.srcList = []
                 this.academicList.map(item => {
                     this.likeStatus.push(item.isCollected)
                     this.srcList.push(item.photo)
@@ -197,7 +227,7 @@ export default {
                 // border: 0.0625rem dashed #fff;
                 border-radius: 0.625rem;
                 overflow: hidden;
-                img{
+                .img{
                     width: 100%;
                     height: 100%;
                 }
