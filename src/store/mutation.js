@@ -15,9 +15,6 @@ const mutations = {
     [types.SET_USER](state, user) {
         state.user = user
     },
-    [types.SET_ISFIRST](state, first) {
-        state.isFirst = first
-    }
 }
 
 export default mutations
