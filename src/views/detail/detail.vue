@@ -13,7 +13,7 @@
       </div>
       <div class="photo">
         <van-image :src="detail.photos[0]" class="img" @click="handleImagePreview">
-            <template v-slot:loading style=font-size:24px;>
+            <template v-slot:loading style=font-size:1.5rem;>
                 <!-- <van-loading type="spinner" size="20" /> -->
                 加载中...
             </template>
@@ -250,42 +250,42 @@ export default {
 #detail{
   background-image: url("../../assets/images/background/home.jpg");
   .back{
-    margin: 0 10px;
-    border-top: 1px solid #e2a995;
-    margin-bottom: 7px;
+    margin: 0 0.625rem;
+    border-top: 0.0625rem solid #e2a995;
+    margin-bottom: 0.4375rem;
     .return_back{
-      margin-top: 13px;
-      margin-left: 6.5px;
-      width: 61.5px;
-      height: 22px;
+      margin-top: 0.8125rem;
+      margin-left: 0.4063rem;
+      width: 3.8438rem;
+      height: 1.375rem;
       background: #d99a82;
-      border-radius: 10px;
+      border-radius: 0.625rem;
       span{
         color: #f9e3d7;
-        font-size: 12px;
-        line-height: 22px;
+        font-size: 0.75rem;
+        line-height: 1.375rem;
       }
     }
   }
   .main{
     margin: 0 auto;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    width: 356.5px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
+    width: 22.2813rem;
     background: rgba(#a44344, 0.55);
-    border-radius: 10px;
+    border-radius: 0.625rem;
     color: #EDCAB2;
-    font-size: 12px;
+    font-size: 0.75rem;
     .head{
       display: flex;
       justify-content: space-between;
-      padding-top: 16px;
-      padding-left: 18.5px;
-      padding-right: 7px;
-      margin-bottom: 40px;
+      padding-top: 1rem;
+      padding-left: 1.1563rem;
+      padding-right: 0.4375rem;
+      margin-bottom: 2.5rem;
       span{
         color: #fff;
-        font-size: 18px;
+        font-size: 1.125rem;
       }
       .star{
           text-align: right;
@@ -301,12 +301,12 @@ export default {
       }
     }
     .photo{
-      width: 230px;
-      height: 230px;
-      border: 1px solid#eec4b2;
-      border-radius:4px;
+      width: 14.375rem;
+      height: 14.375rem;
+      border: 0.0625rem solid#eec4b2;
+      border-radius:0.25rem;
       margin: 0 auto;
-      margin-bottom: 14px;
+      margin-bottom: 0.875rem;
       overflow: hidden;
       .img{
         height: 100%;
@@ -314,62 +314,62 @@ export default {
       }
     }
     .btn{
-      margin-left: 12px;
-      margin-bottom: 13.5px;
-      width: 85px;
-      height: 32.5px;
+      margin-left: 0.75rem;
+      margin-bottom: 0.8438rem;
+      width: 5.3125rem;
+      height: 2.0313rem;
       background: #9f1f1c;
-      border-radius: 8px;
-      border: 1px solid#eec4b2;
-      font-size: 12.97px;
-      line-height: 32.5px;
+      border-radius: 0.5rem;
+      border: 0.0625rem solid#eec4b2;
+      font-size: 0.8106rem;
+      line-height: 2.0313rem;
       color: #eec4b2;
     }
     .poemDesc{
       .desc{
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
       }
     }
     .mean{
       .meaning{
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
       }
     }
     .baseInfo{
-      margin-bottom: 12.5px;
+      margin-bottom: 0.7813rem;
       .info{
         .row{
           display: flex;
-          // border-bottom: 0.8333px dashed #EDCAB2;
+          // border-bottom: 0.0521rem dashed #EDCAB2;
           .con-item{
             margin: 0 auto;
-            margin-left: 50px;
-              // width: 450px;
-              height: 30px;
+            margin-left: 3.125rem;
+              // width: 28.125rem;
+              height: 1.875rem;
               display: flex;
               .title{
                   text-align: center;
-                  width: 111.6667px;
-                  height: 30px;
-                  margin-right: 15.8333px;
-                  font-size: 12px;
-                  line-height: 30.8333px;
+                  width: 6.9792rem;
+                  height: 1.875rem;
+                  margin-right: 0.9896rem;
+                  font-size: 0.75rem;
+                  line-height: 1.9271rem;
                   // font-weight: 600;
               }
               .content{
-                  width: 150px;
-                  height: 30px;
+                  width: 9.375rem;
+                  height: 1.875rem;
                   text-align: left;
                   // font-weight: 600;
-                  font-size: 12px;
-                  line-height: 30px;
+                  font-size: 0.75rem;
+                  line-height: 1.875rem;
                   text-overflow: ellipsis;
                   overflow: hidden;
                   white-space: nowrap;
               }
           }
           .item-right{
-              margin-left: 21.6667px;
+              margin-left: 1.3542rem;
           }
       }
       }
@@ -378,36 +378,36 @@ export default {
       .yuansu{
         .row{
           display: flex;
-          // border-bottom: 0.8333px dashed #EDCAB2;
+          // border-bottom: 0.0521rem dashed #EDCAB2;
           .con-item{
             margin: 0 auto;
-            margin-left: 50px;
-              // width: 450px;
-              height: 30px;
+            margin-left: 3.125rem;
+              // width: 28.125rem;
+              height: 1.875rem;
               display: flex;
               .title{
                   text-align: center;
-                  width: 111.6667px;
-                  height: 30px;
-                  margin-right: 15.8333px;
-                  font-size: 12px;
-                  line-height: 30.8333px;
+                  width: 6.9792rem;
+                  height: 1.875rem;
+                  margin-right: 0.9896rem;
+                  font-size: 0.75rem;
+                  line-height: 1.9271rem;
                   // font-weight: 600;
               }
               .content{
-                  width: 150px;
-                  height: 30px;
+                  width: 9.375rem;
+                  height: 1.875rem;
                   text-align: left;
                   // font-weight: 600;
-                  font-size: 12px;
-                  line-height: 30px;
+                  font-size: 0.75rem;
+                  line-height: 1.875rem;
                   text-overflow: ellipsis;
                   overflow: hidden;
                   white-space: nowrap;
               }
           }
           .item-right{
-              margin-left: 21.6667px;
+              margin-left: 1.3542rem;
           }
       }
       }

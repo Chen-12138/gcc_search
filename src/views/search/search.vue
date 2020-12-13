@@ -134,103 +134,103 @@ export default {
 #search{
     background-image: url("../../assets/images/background/home.jpg");
     height: 100vh;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
     .title{
         display: flex;
         align-items: center;
-        padding-bottom: 10px;
-        border-bottom: 1px solid#F9E3D7;
-        padding-left: 15px;
+        padding-bottom: 0.625rem;
+        border-bottom: 0.0625rem solid#F9E3D7;
+        padding-left: 0.9375rem;
         .back{
-            font-size: 24px;
+            font-size: 1.5rem;
             color:  #F9E3D7;
-            margin-right: 16px;
+            margin-right: 1rem;
         }
         .searchInput{
             position: relative;
             i{
-                font-size: 16px;
+                font-size: 1rem;
                 position: absolute;
-                left: 10px;
-                line-height: 27px;
+                left: 0.625rem;
+                line-height: 1.6875rem;
                 color: #F9E3D7;
             }
             input{
-                padding-left: 28px;
-                width: 278px;
-                height: 27px;
-                border-radius: 10px;
-                border: 1px solid #F9E3D7;
+                padding-left: 1.75rem;
+                width: 17.375rem;
+                height: 1.6875rem;
+                border-radius: 0.625rem;
+                border: 0.0625rem solid #F9E3D7;
                 outline: none;
                 background-color: transparent;
-                font-size: 13px;
+                font-size: 0.8125rem;
                 color: #F9E3D7
             }
         }
     }
     .match{
-        margin-bottom: 12px;
+        margin-bottom: 0.75rem;
         .match_item{
-            height: 38px;
-            border-bottom: 1px solid #913427;
+            height: 2.375rem;
+            border-bottom: 0.0625rem solid #913427;
             display: flex;
             align-items: center;
-            padding-left: 14px;
+            padding-left: 0.875rem;
             img{
-                width: 24px;
-                height: 12px;
-                margin-right: 10px;
+                width: 1.5rem;
+                height: 0.75rem;
+                margin-right: 0.625rem;
             }
             span{
-                font-size: 16px;
+                font-size: 1rem;
                 color:  #edcab2;
             }
         }
     }
     .history{
         .his_title{
-            margin-left: 12px;
-            margin-bottom: 16px;
+            margin-left: 0.75rem;
+            margin-bottom: 1rem;
             display: flex;
             .flower{
                 z-index: 1;
                 display: flex;
                 align-items: center;
-                margin-right: 12px;
+                margin-right: 0.75rem;
                 img{
-                    width: 18px;
-                    height: 20px;
+                    width: 1.125rem;
+                    height: 1.25rem;
                 }
             }
             span{
-                font-size: 16px;
+                font-size: 1rem;
                 color: #f9e3d7;
             }
         }
         .his{
             display: flex;
             flex-wrap: wrap;
-            padding: 0 10px;
+            padding: 0 0.625rem;
             .his_item{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 80px;
-                height: 28px;
-                border: 1px solid #F9E3D7;
-                border-radius: 10px;
-                margin-bottom: 18px;
+                width: 5rem;
+                height: 1.75rem;
+                border: 0.0625rem solid #F9E3D7;
+                border-radius: 0.625rem;
+                margin-bottom: 1.125rem;
                 span{
-                    width: 65px;
-                    font-size: 12px;
+                    width: 4.0625rem;
+                    font-size: 0.75rem;
                     color: #f9e3d7;
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     overflow: hidden;
                 }
                 &.middle{
-                    margin: 0 46px;
+                    margin: 0 2.875rem;
                 }
             }
         }

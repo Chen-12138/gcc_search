@@ -27,7 +27,7 @@
                     <div class="photo">
                         <a :href="item.url" target="_blank">
                             <van-image :src="item.photo" class="img">
-                                <template v-slot:loading style=font-size:24px;>
+                                <template v-slot:loading style=font-size:1.5rem;>
                                     <!-- <van-loading type="spinner" size="20" /> -->
                                     加载中...
                                 </template>

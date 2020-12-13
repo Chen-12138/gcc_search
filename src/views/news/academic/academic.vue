@@ -22,7 +22,7 @@
                 </div>
                 <div class="photo">
                     <van-image :src="item.photo" class="img" @click="handleImagePreview(index)">
-                        <template v-slot:loading style=font-size:24px;>
+                        <template v-slot:loading style=font-size:1.5rem;>
                             <!-- <van-loading type="spinner" size="20" /> -->
                             加载中...
                         </template>
@@ -256,16 +256,16 @@ export default {
                     line-height: 1.25rem;
                     .btn{
                         position: absolute;
-                        top: -6px;
+                        top: -0.375rem;
                         right: 0;
-                        width: 60px;
-                        height: 25px;
+                        width: 3.75rem;
+                        height: 1.5625rem;
                         // background: rgba(#9f1f1c, 0.55);
                         background: #9f1f1c;
-                        border-radius: 6px;
-                        border: 1px soli#E6E6E6;
+                        border-radius: 0.375rem;
+                        border: 0.0625rem soli#E6E6E6;
                         display: flex;
-                        font-size: 12px;
+                        font-size: 0.75rem;
                         justify-content: center;
                         align-items: center;
                     }

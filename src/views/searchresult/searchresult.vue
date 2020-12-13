@@ -32,7 +32,7 @@
               <div class="main">
                 <div class="photo" @click="handleToDetail(item.porcelainId)">
                     <van-image :src="item.photos[0]" class="img">
-                        <template v-slot:loading style=font-size:24px;>
+                        <template v-slot:loading style=font-size:1.5rem;>
                             <!-- <van-loading type="spinner" size="20" /> -->
                             加载中...
                         </template>
@@ -259,11 +259,11 @@ export default {
     // height: 100vh;
     .title{
         display: flex;
-        margin-left: 28px;
-        margin-right: 25px;
-        margin-bottom: 10px;
-        padding-bottom: 6px;
-        border-bottom: 1px solid#F9E3D7;
+        margin-left: 1.75rem;
+        margin-right: 1.5625rem;
+        margin-bottom: 0.625rem;
+        padding-bottom: 0.375rem;
+        border-bottom: 0.0625rem solid#F9E3D7;
         align-items: center;
         .searchInput{
             position: relative;
@@ -271,22 +271,22 @@ export default {
             display: flex;
             align-items: center;
             i{
-                font-size: 10px;
+                font-size: 0.625rem;
                 position: absolute;
-                // top: 3.5px;
-                left: 5px;
+                // top: 0.2188rem;
+                left: 0.3125rem;
                 
-                line-height: 27px;
+                line-height: 1.6875rem;
                 color: #F9E3D7;
             }
             input{
-                padding-left: 16px;
-                width: 82px;
-                height: 15px;
+                padding-left: 1rem;
+                width: 5.125rem;
+                height: 0.9375rem;
                 background: transparent;
-                border-radius: 10px;
-                border: 1px solid #edcab2;
-                font-size: 10px;
+                border-radius: 0.625rem;
+                border: 0.0625rem solid #edcab2;
+                font-size: 0.625rem;
                 color:  #f9e3d7;
             }
         }
@@ -298,12 +298,12 @@ export default {
                 justify-content: center;
                 align-items: center;
                 position: relative;
-                width: 40px;
-                height: 15px;
-                font-size: 10px;
-                border-radius: 10px;
-                border: 1px solid #edcab2;
-                margin-left: 8px;
+                width: 2.5rem;
+                height: 0.9375rem;
+                font-size: 0.625rem;
+                border-radius: 0.625rem;
+                border: 0.0625rem solid #edcab2;
+                margin-left: 0.5rem;
                 color: #f9e3d7;
                 .icon{
                  color: #f9e3d7;
@@ -313,9 +313,9 @@ export default {
                  transform: translate(-50%,-20%);
                 }
                 &.active{
-                    width: 45px;
-                    height: 16px;
-                    font-size: 12px;
+                    width: 2.8125rem;
+                    height: 1rem;
+                    font-size: 0.75rem;
                     color: #4C3E2B;
                     background:  #edcab2;
                     z-index: 3;
@@ -326,17 +326,17 @@ export default {
                 }
                 .float{
                     position: absolute;
-                    top: 21px;
-                    width: 40px;
-                    // height: 98px;
+                    top: 1.3125rem;
+                    width: 2.5rem;
+                    // height: 6.125rem;
                     background: #edcab2;
-                    font-size: 9px;
+                    font-size: 0.5625rem;
                     color: #4C3E2B;
-                    border-radius: 6px;
+                    border-radius: 0.375rem;
                     visibility: hidden;
                     li{
-                        padding: 2px 0;
-                        height: 20px;
+                        padding: 0.125rem 0;
+                        height: 1.25rem;
                     }
                 }
             }
@@ -352,20 +352,20 @@ export default {
             }
             .main{
                 margin: 0 auto;
-                width: 328px;
+                width: 20.5rem;
                 display: flex;
                 background: rgba(#a44344, 0.55);
-                border-radius: 10px;
+                border-radius: 0.625rem;
                 flex-direction: row;
-                padding-bottom: 30px;
+                padding-bottom: 1.875rem;
                 .photo{
-                    margin-top: 5px;
-                    margin-left: 7px;
-                    width: 149px;
-                    height: 168px;
-                    border: 1px solid#eec4b2;
+                    margin-top: 0.3125rem;
+                    margin-left: 0.4375rem;
+                    width: 9.3125rem;
+                    height: 10.5rem;
+                    border: 0.0625rem solid#eec4b2;
                     overflow: hidden;
-                    border-radius: 5px;
+                    border-radius: 0.3125rem;
                     .img{
                         width: 100%;
                         height: 100%;
@@ -374,30 +374,30 @@ export default {
                 .text{
                     text-align: left;
                     color: #f9e3d7;
-                    margin-top: 18px;
-                    margin-left: 6px;
-                    width: 160px;
+                    margin-top: 1.125rem;
+                    margin-left: 0.375rem;
+                    width: 10rem;
                     .name{
                         text-align: left;
-                        padding-left: 8px;
-                        font-size: 12px;
-                        margin-bottom: 15px;
+                        padding-left: 0.5rem;
+                        font-size: 0.75rem;
+                        margin-bottom: 0.9375rem;
                     }
                     .desc{
-                        font-size: 10px;
+                        font-size: 0.625rem;
                     }
                 }
             }
 
             .flower{
                 z-index: 1;
-                margin: 28px 0;
+                margin: 1.75rem 0;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 img{
-                    width: 18px;
-                    height: 20px;
+                    width: 1.125rem;
+                    height: 1.25rem;
                 }
             }
         }

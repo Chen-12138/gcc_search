@@ -31,7 +31,7 @@
         <div class="production_item" v-for="(item,index) in list" :key="item.title">
             <div class="photo">
                 <van-image :src="item.photo" class="img" @click="handleImagePreview(index)">
-                    <template v-slot:loading style=font-size:24px;>
+                    <template v-slot:loading style=font-size:1.5rem;>
                         <!-- <van-loading type="spinner" size="20" /> -->
                         加载中...
                     </template>
