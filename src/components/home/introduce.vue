@@ -12,42 +12,42 @@
 
 <style lang="scss" scoped>
 .introduce {
-  padding: 0 20px;
+  padding: 0 1.25rem;
   width: 100%;
-  margin: 60px 0;
+  margin: 3.75rem 0;
   .headImg {
-    margin: 25px auto;
-    height: 30px;
-    width: 30px;
+    margin: 1.5625rem auto;
+    height: 1.875rem;
+    width: 1.875rem;
     background-image: url(../../assets/images/hua.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
   .title {
-    height: 40px;
-    width: 120px;
-    border: solid 1px #edcbbd;
-    border-radius: 10px;
-    margin: 0 auto 20px auto;
-    font-size: 20px;
-    line-height: 40px;
+    height: 2.5rem;
+    width: 7.5rem;
+    border: solid 0.0625rem #edcbbd;
+    border-radius: 0.625rem;
+    margin: 0 auto 1.25rem auto;
+    font-size: 1.25rem;
+    line-height: 2.5rem;
     color: #edcbbd;
     text-align: center;
     background-color: #a1231f;
   }
   .content {
-    margin: 10px auto 0 auto;
-    border-radius: 20px;
+    margin: 0.625rem auto 0 auto;
+    border-radius: 1.25rem;
     width: 95%;
-    line-height: 25px;
-    font-size: 18px;
+    line-height: 1.5625rem;
+    font-size: 1.125rem;
     color: #ecece3;
     background-image: linear-gradient(
       rgb(161, 35, 31, 0.2),
       rgb(161, 35, 31, 0.5)
     );
-    padding: 20px 20px;
+    padding: 1.25rem 1.25rem;
   }
 }
 </style>

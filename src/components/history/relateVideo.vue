@@ -10,7 +10,7 @@
     </div>
     <div class="division"></div>
     <div class="bottom flower"></div>
-    <div style="margin-bottom: 40px">
+    <div style="margin-bottom: 2.5rem">
       <pagination
         :total="total"
         :display="1"
@@ -80,44 +80,42 @@ export default {
 .timeLine {
   .flower {
     margin: 0 auto;
-    width: 25px;
-    height: 25px;
+    width: 1.5625rem;
+    height: 1.5625rem;
     background-image: url("../../assets/images/hua.png");
     background-position: center;
     background-size: cover;
   }
   .division {
     width: 100%;
-    height: 20px;
+    height: 1.25rem;
     background-image: url("../../assets/images/bk-2.png");
     background-repeat: repeat-x;
     background-position: center;
-    background-size: auto 20px;
-    margin: 20px 0;
+    background-size: auto 1.25rem;
+    margin: 1.25rem 0;
   }
   .title {
-    // height: 40px;
-    width: 240px;
-    border: solid 1px #edcbbd;
-    border-radius: 10px;
+    // height: 2.5rem;
+    width: 15rem;
+    border: solid 0.0625rem #edcbbd;
+    border-radius: 0.625rem;
     margin: 0 auto;
-    font-size: 20px;
-    line-height: 40px;
+    font-size: 1.25rem;
+    line-height: 2.5rem;
     color: #edcbbd;
     text-align: center;
     background-color: #a1231f;
   }
   .main {
     position: relative;
-    margin: 30px auto;
-    border-radius: 20px;
+    margin: 1.875rem auto;
+    border-radius: 1.25rem;
     width: 92%;
-    // height: 300px;
     background-image: linear-gradient(
       rgb(161, 35, 31, 0.2),
       rgb(161, 35, 31, 0.6)
     );
-    // padding: 25px 25px;
   }
 }
 </style>

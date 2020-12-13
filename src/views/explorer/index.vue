@@ -7,7 +7,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-            <router-link :to="{path:'home'}">首页</router-link>
+            <router-link :to="{ path: 'home' }">首页</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -16,7 +16,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-               <router-link :to="{path:'collection'}">藏品</router-link>
+            <router-link :to="{ path: 'collection' }">藏品</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -25,7 +25,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-             <router-link :to="{path:'home'}">历史</router-link>
+            <router-link :to="{ path: 'history' }">历史</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -34,7 +34,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-            <router-link :to="{name:'名家大师'}">名家大师</router-link>
+            <router-link :to="{ name: '名家大师' }">名家大师</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -43,7 +43,9 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-               <router-link :to="{path:'culturalProduction/production'}">文创产品</router-link>
+            <router-link :to="{ path: 'culturalProduction/production' }"
+              >文创产品</router-link
+            >
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -52,7 +54,9 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-               <router-link :to="{path:'culturalProduction/game'}">文创游戏</router-link>
+            <router-link :to="{ path: 'culturalProduction/game' }"
+              >文创游戏</router-link
+            >
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -61,7 +65,7 @@
             <img src="@/assets/images/hua.png" id="hua" />
           </div>
           <div class="item-header-main">
-               <router-link :to="{path:'news/academic'}">学术</router-link>
+            <router-link :to="{ path: 'news/academic' }">学术</router-link>
             <img src="@/assets/images/bk.png" />
           </div>
         </li>
@@ -79,7 +83,7 @@ export default {
   components: {},
   mounted() {},
   methods: {
-     go(name) {
+    go(name) {
       this.$router.push({
         name: "搜索结果",
         query: {
@@ -99,12 +103,12 @@ export default {
   main {
     background: rgba(182, 71, 53, 0.3);
     border-radius: 10px;
-     padding:0 max(1vw,0.5rem);
+    padding: 0 max(1vw, 0.5rem);
     .item {
       display: flex;
       align-items: center;
-      height:50px;
-      font-size:1.2rem;
+      height: 50px;
+      font-size: 1.2rem;
       .item-icon {
         img {
           width: 16px;
@@ -117,8 +121,8 @@ export default {
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid rgb(167, 67, 47);
-        margin-left:5px;
-        padding-bottom:2px;
+        margin-left: 5px;
+        padding-bottom: 2px;
         a {
           margin-left: 10px;
         }

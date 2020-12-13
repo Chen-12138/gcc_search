@@ -67,22 +67,15 @@ export default {
   z-index: 20;
 }
 .swiperItems {
-  height: 200px;
+  height: 12.5rem;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-/* .my-swipe .van-swipe-item {
-  color: #fff;
-  font-size: 20px;
-  line-height: 150px;
-  text-align: center;
-  background-color: #39a9ed;
-} */
 .myIndicator {
   overflow: hidden;
   display: table;
-  margin: 10px auto;
+  margin: 0.625rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,8 +95,8 @@ export default {
   background-position: center;
   background-size: cover;
   position: absolute;
-  bottom: -45px;
-  width: 50px;
-  height: 70px;
+  bottom: -2.8125rem;
+  width: 3.125rem;
+  height: 4.375rem;
 }
 </style>

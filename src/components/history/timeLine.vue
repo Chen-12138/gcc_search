@@ -11,7 +11,7 @@
     </div>
     <div class="division"></div>
     <div class="bottom flower"></div>
-    <div style="margin-bottom: 40px">
+    <div style="margin-bottom: 2.5rem">
       <pagination
         :total="total"
         :display="1"
@@ -100,50 +100,50 @@ export default {
 .timeLine {
   .flower {
     margin: 0 auto;
-    width: 25px;
-    height: 25px;
+    width: 1.5625rem;
+    height: 1.5625rem;
     background-image: url("../../assets/images/hua.png");
     background-position: center;
     background-size: cover;
   }
   .division {
     width: 100%;
-    height: 20px;
+    height: 1.25rem;
     background-image: url("../../assets/images/bk-2.png");
     background-repeat: repeat-x;
     background-position: center;
-    background-size: auto 20px;
-    margin: 20px 0;
+    background-size: auto 1.25rem;
+    margin: 1.25rem 0;
   }
   .main {
     position: relative;
-    margin: 90px auto 0 auto;
-    border-radius: 20px;
+    margin: 5.625rem auto 0 auto;
+    border-radius: 1.25rem;
     width: 90%;
     background-image: linear-gradient(
       rgb(161, 35, 31, 0.2),
       rgb(161, 35, 31, 0.6)
     );
-    padding: 25px 25px;
+    padding: 1.5625rem 1.5625rem;
     .titleImg {
       position: absolute;
-      height: 250px;
-      width: 250px;
+      height: 15.625rem;
+      width: 15.625rem;
       border-radius: 50%;
-      top: -80px;
+      top: -5rem;
       left: 50%;
-      transform: translatex(-125px);
+      transform: translatex(-7.8125rem);
       background-repeat: no-repeat;
       background-size: cover;
     }
     .content {
-      margin-top: 150px;
+      margin-top: 9.375rem;
       width: 100%;
-      line-height: 25px;
-      font-size: 18px;
+      line-height: 1.5625rem;
+      font-size: 1.125rem;
       color: #ecece3;
       h2 {
-        margin: 15px 0;
+        margin: 0.9375rem 0;
       }
     }
   }

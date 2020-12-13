@@ -260,7 +260,7 @@ export default {
     margin-bottom: 1.25rem;
   }
   .code {
-    margin: 0 20px;
+    margin: 0 1.25rem;
     display: flex;
     flex-direction: row;
     justify-content: center;

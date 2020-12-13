@@ -75,21 +75,21 @@ export default {
   width: 100%;
   .title {
     width: 55%;
-    margin: 20px auto 10px auto;
+    margin: 1.25rem auto 0.625rem auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .border_img {
-      width: 25px;
-      height: 15px;
+      width: 1.5625rem;
+      height: 0.9375rem;
       background-image: url(../../assets/images/bk.png);
-      background-size: 25px 15px;
+      background-size: 1.5625rem 0.9375rem;
       background-position: center;
-      margin: 0 15px;
+      margin: 0 0.9375rem;
     }
     .imgBox {
-      width: 20px;
-      height: 20px;
+      width: 1.25rem;
+      height: 1.25rem;
     }
     .left {
       .left_top {
@@ -108,53 +108,53 @@ export default {
       }
     }
     .content {
-      line-height: 25px;
-      font-size: 24px;
+      line-height: 1.5625rem;
+      font-size: 1.5rem;
       color: #ecece3;
       font-weight: 500;
     }
   }
   .body {
-    margin: 20px auto 0 auto;
-    border-radius: 20px;
+    margin: 1.25rem auto 0 auto;
+    border-radius: 1.25rem;
     width: 90%;
-    // height: 300px;
-    line-height: 25px;
-    font-size: 18px;
+    // height: 18.75rem;
+    line-height: 1.5625rem;
+    font-size: 1.125rem;
     color: #ecece3;
     background-image: linear-gradient(
       rgb(161, 35, 31, 0.2),
       rgb(161, 35, 31, 0.5)
     );
-    padding: 20px 20px;
+    padding: 1.25rem 1.25rem;
   }
   .foot {
-    margin: 40px auto;
+    margin: 2.5rem auto;
     width: 70%;
     display: flex;
     justify-content: space-between;
     .footBtn {
-      height: 40px;
-      width: 100px;
-      font-size: 18px;
+      height: 2.5rem;
+      width: 6.25rem;
+      font-size: 1.125rem;
       background-color: #a1231f;
-      border: 1px #ecece3 solid;
-      border-radius: 10px;
+      border: 0.0625rem #ecece3 solid;
+      border-radius: 0.625rem;
       color: #ecece3;
       outline: none;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
     .division {
       hr {
         width: 100%;
-        height: 2px;
+        height: 0.125rem;
         border: none;
-        border-top: 2px solid #edcbbd;
+        border-top: 0.125rem solid #edcbbd;
       }
       .bottom {
         color: #ecece3;
-        font-size: 30px;
-        transform: translateY(-13px);
+        font-size: 1.875rem;
+        transform: translateY(-0.8125rem);
       }
     }
   }

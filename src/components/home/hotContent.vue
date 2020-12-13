@@ -81,18 +81,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .hotContent {
-  padding: 0 20px;
+  padding: 0 1.25rem;
   width: 100%;
-  margin: 70px 0;
+  margin: 4.375rem 0;
   .contentHead {
     .title {
-      height: 40px;
-      width: 120px;
-      border: solid 1px #edcbbd;
-      border-radius: 10px;
+      height: 2.5rem;
+      width: 7.5rem;
+      border: solid 0.0625rem #edcbbd;
+      border-radius: 0.625rem;
       margin: 0 auto;
-      font-size: 20px;
-      line-height: 40px;
+      font-size: 1.25rem;
+      line-height: 2.5rem;
       color: #edcbbd;
       text-align: center;
       background-color: #a1231f;
@@ -104,21 +104,21 @@ export default {
       align-items: center;
       hr {
         width: 85%;
-        height: 2px;
+        height: 0.125rem;
         border: none;
-        border-top: 2px solid #edcbbd;
+        border-top: 0.125rem solid #edcbbd;
       }
       .left {
-        height: 17px;
-        width: 17px;
+        height: 1.0625rem;
+        width: 1.0625rem;
         background-image: url(../../assets/images/hua.png);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
       }
       .right {
-        height: 17px;
-        width: 17px;
+        height: 1.0625rem;
+        width: 1.0625rem;
         background-image: url(../../assets/images/hua.png);
         background-repeat: no-repeat;
         background-position: center;
@@ -127,28 +127,28 @@ export default {
     }
   }
   .container {
-    margin: 10px auto 0 auto;
-    border-radius: 20px;
+    margin: 0.625rem auto 0 auto;
+    border-radius: 1.25rem;
     width: 95%;
-    // height: 300px;
+    // height: 18.75rem;
     background-color: #9f211e;
-    padding: 20px 20px;
+    padding: 1.25rem 1.25rem;
     .item {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 15px 0;
+      margin: 0.9375rem 0;
       .circle {
-        height: 15px;
-        width: 15px;
+        height: 0.9375rem;
+        width: 0.9375rem;
         border-radius: 50%;
         background-color: red;
       }
       .contentTitle {
         width: 80%;
         color: #edcbbd;
-        font-size: 18px;
+        font-size: 1.125rem;
         overflow: hidden;
         white-space: normal;
         word-break: break-all;
@@ -160,12 +160,12 @@ export default {
         white-space: nowrap;
       }
       .imgBox {
-        height: 15px;
-        width: 25px;
+        height: 0.9375rem;
+        width: 1.5625rem;
         background-image: url(../../assets/images/bk.png);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 25px 15px;
+        background-size: 1.5625rem 0.9375rem;
       }
     }
   }
