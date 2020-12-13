@@ -21,7 +21,14 @@
                     <img src="@/assets/images/hua.png" alt="">
                 </div>
                 <div class="photo">
-                    <img :src="item.photo" alt="">
+                    <van-image :src="item.photo" class="img" @click="handleImagePreview(index)">
+                        <template v-slot:loading style=font-size:1.5rem;>
+                            <!-- <van-loading type="spinner" size="20" /> -->
+                            加载中...
+                        </template>
+                        <template v-slot:error>加载失败</template>
+                    </van-image>
+                    <!-- <img :src="item.photo" alt=""> -->
                 </div>
                 <div class="text">
                     <div class="title">
@@ -29,6 +36,9 @@
                         <!-- 《从广彩瓷器看海丝路上的粤商》  何东红  -->
                     </div>
                     <div class="main">
+                        <div class="btn" @click="getDownload(item.academicId,item.title)">
+                            <span>下载</span>
+                        </div>
                         <span class="zhaiyao">摘要：</span>
                         <p class="neirong">
                             {{item.content}}
@@ -46,6 +56,8 @@
 </template>
 
 <script>
+import { ImagePreview } from 'vant'
+import {scrollTo} from '@/utils/jump'
 import Pagination from '@/components/Pagination.vue'
 export default {
     components:{
@@ -65,12 +77,32 @@ export default {
             academicList: [],
             // 储存收藏状态
             likeStatus: [],
+            // 图片预览数组
+            srcList:[]
         }
     },
-    mounted(){
-        this.getAcademic();
+    async mounted(){
+        if(this.$route.query.number){
+            this.page = parseInt((this.$route.query.number-1)/this.pageSize) + 1
+            this.id = this.$route.query.id
+        } else if (this.$route.query.id){
+            this.page = parseInt((this.$route.query.id-1)/this.pageSize) + 1
+            this.id = this.$route.query.id
+        }
+        await this.getAcademic();
+        scrollTo()
     },
     methods:{
+        // 处理图片放大预览
+        handleImagePreview(index){
+            ImagePreview({
+                images:[
+                ...this.srcList
+                ],
+                closeable: true,
+                startPosition: index,
+            })
+        },
         // 页数切换时
         pagechange(value){
             this.page = value
@@ -86,9 +118,10 @@ export default {
                 // console.log(res)
                 this.academicList = res.data.data.academicList
                 // console.log(this.academicList)
-                this.total = res.data.data.total - 4
+                this.total = res.data.data.total
                 // 存储收藏信息
                 this.likeStatus = []
+                this.srcList = []
                 this.academicList.map(item => {
                     this.likeStatus.push(item.isCollected)
                     this.srcList.push(item.photo)
@@ -112,6 +145,10 @@ export default {
         collect(id,index){
             this.getLike(id)
             this.$set(this.likeStatus,index,!this.likeStatus[index])
+        },
+        // 获取文献下载链接
+        async getDownload(id,filename) {
+            window.open('http://47.102.155.74:10808/color_porcelain/academic/download?academicId=' + id)
         },
     }
 }
@@ -187,9 +224,10 @@ export default {
             .photo{
                 width: 19rem;
                 height: 12.1875rem;
-                border: 0.0625rem dashed #fff;
+                // border: 0.0625rem dashed #fff;
                 border-radius: 0.625rem;
-                img{
+                overflow: hidden;
+                .img{
                     width: 100%;
                     height: 100%;
                 }
@@ -208,6 +246,7 @@ export default {
                     padding-bottom: 1.875rem;
                 }
                 .main{
+                    position: relative;
                     width: 17.625rem;
                     text-align: justify;
                     font-size: 0.9375rem;
@@ -215,6 +254,21 @@ export default {
                     font-weight: 400;
                     color: #E6E6E6;
                     line-height: 1.25rem;
+                    .btn{
+                        position: absolute;
+                        top: -0.375rem;
+                        right: 0;
+                        width: 3.75rem;
+                        height: 1.5625rem;
+                        // background: rgba(#9f1f1c, 0.55);
+                        background: #9f1f1c;
+                        border-radius: 0.375rem;
+                        border: 0.0625rem soli#E6E6E6;
+                        display: flex;
+                        font-size: 0.75rem;
+                        justify-content: center;
+                        align-items: center;
+                    }
                     p{
                         font-size: 0.875rem;
                     }

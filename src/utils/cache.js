@@ -1,7 +1,7 @@
 import storage from 'good-storage'
 
 const SEARCH_KEY = '__search__'
-const SEARCH_MAX = 15
+const SEARCH_MAX = 10
 
 // 插入
 function insertArray(arr, val, compare, maxLen) {

@@ -26,7 +26,14 @@
                 <div class="top">
                     <div class="photo">
                         <a :href="item.url" target="_blank">
-                            <img :src="item.photo" alt="">
+                            <van-image :src="item.photo" class="img">
+                                <template v-slot:loading style=font-size:1.5rem;>
+                                    <!-- <van-loading type="spinner" size="20" /> -->
+                                    加载中...
+                                </template>
+                                <template v-slot:error>加载失败</template>
+                            </van-image>
+                            <!-- <img :src="item.photo" alt=""> -->
                         </a>
                     </div>
                     <div class="text">
@@ -81,6 +88,7 @@
 
 <script>
 import Pagination from '@/components/Pagination.vue'
+import {scrollTo} from '@/utils/jump'
 export default {
     components:{
         Pagination
@@ -99,8 +107,13 @@ export default {
             likeStatus: []
         }
     },
-    mounted(){
+    async mounted(){
+        if(this.$route.query.number){
+            this.page = parseInt((this.$route.query.number-1)/this.pageSize) + 1
+            this.id = this.$route.query.id
+        }
         this.getGame();
+        scrollTo()
         // console.log(this.gameList)
     },
     methods: {
@@ -228,10 +241,10 @@ export default {
                         margin-right: 0.375rem;
                         width: 8.125rem;
                         height: 7.375rem;
-                        border: 0.0625rem dashed #fff;
-                        border-radius: 0.625rem;
+                        // border: 0.0625rem dashed #fff;
+                        border-radius: .5rem;
                         overflow: hidden;
-                        img{
+                        .img{
                             width: 100%;
                             height: 100%;
                         }
@@ -383,8 +396,8 @@ export default {
                         margin-right: 0.5625rem;
                         width: 8.125rem;
                         height: 7.375rem;
-                        border: 0.0625rem dashed #fff;
-                        border-radius: 0.625rem;
+                        // border: 0.0625rem dashed #fff;
+                        border-radius: .5rem;
                         overflow: hidden;
                         img{
                             width: 100%;
@@ -485,7 +498,7 @@ export default {
             .point{
                 position: absolute;
                 top: 7.125rem;
-                right: 0.5rem;
+                left: 0.5rem;
                 div{
                     width: 0.4375rem;
                     height: 0.4375rem;

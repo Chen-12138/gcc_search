@@ -28,9 +28,16 @@
             <i v-if="!likeStatus" @click="collect" class="fa fa-star-o" aria-hidden="true"></i>
             <i v-else @click="collect" class="fa fa-star" aria-hidden="true"></i>
         </div>
-        <div class="production_item" v-for="item in list" :key="item.title">
+        <div class="production_item" v-for="(item,index) in list" :key="item.title">
             <div class="photo">
-                <img :src="item.photo" alt="">
+                <van-image :src="item.photo" class="img" @click="handleImagePreview(index)">
+                    <template v-slot:loading style=font-size:1.5rem;>
+                        <!-- <van-loading type="spinner" size="20" /> -->
+                        加载中...
+                    </template>
+                    <template v-slot:error>加载失败</template>
+                </van-image>
+                <!-- <img :src="item.photo" alt=""> -->
             </div>
             <div class="name">
                 {{item.name}}
@@ -55,6 +62,7 @@
 </template>
 
 <script>
+import { ImagePreview } from 'vant'
 export default {
     data(){
         return{
@@ -90,13 +98,25 @@ export default {
             // 收藏状态
             likeStatus: false,
             // 数据
-            list: []
+            list: [],
+            // 图片预览数组
+            srcList:[]
         }
     },
     mounted(){
         this.getProduction()
     },
     methods:{
+        // 处理图片放大预览
+        handleImagePreview(index){
+            ImagePreview({
+                images:[
+                ...this.srcList
+                ],
+                closeable: true,
+                startPosition: index,
+            })
+        },
         // 改变分类
         changeType(type) {
         // console.log(type)
@@ -110,6 +130,10 @@ export default {
                     type: this.type
                 })
                 this.list = res.data.data
+                this.srcList = []
+                this.list.map(item=>{
+                    this.srcList.push(item.photo)
+                })
                 this.likeStatus = res.data.data[0].isCollected
                 // console.log(res)
             } catch(error) {
@@ -138,6 +162,7 @@ export default {
 <style lang="scss" scoped>
 #production{
     background-image: url('../../../assets/images/background/历史_历史.jpg');
+    height: 100vh;
     .title{
         padding-left: 1.5rem;
         padding-right: 1.25rem;
@@ -237,19 +262,18 @@ export default {
         padding-right: 1.25rem;
         display: flex;
         flex-wrap: wrap;
-        padding-bottom: 4.75rem;
         .star{
             position: absolute;
-            left: 6px;
-            padding-right: 5px;
-            padding-top: 3px;
-            padding-bottom: 6px;
-            font-size: 5px;
+            left: 0.375rem;
+            padding-right: 0.3125rem;
+            padding-top: 0.1875rem;
+            padding-bottom: 0.375rem;
+            font-size: 0.3125rem;
             color:#eec4b2;
-            width: 24px;
-            height: 56px;
-            border: 1px solid#eec4b2;
-            border-radius: 5px;
+            width: 1.5rem;
+            height: 3.5rem;
+            border: 0.0625rem solid#eec4b2;
+            border-radius: 0.3125rem;
             text-align: right;
             .fa-star-o{
                 margin-bottom: 0.25rem;
@@ -267,7 +291,7 @@ export default {
             background: rgba(#a44344, 0.55);
             border-radius: 0.625rem;
             margin-bottom: 1rem;
-            padding-bottom: 10px;
+            padding-bottom: 0.625rem;
             &:nth-child(even){
                 margin-right: 0.8rem;
             }
@@ -277,9 +301,10 @@ export default {
                 margin-bottom: 0.375rem;
                 width: 6.25rem;
                 height: 7.875rem;
-                border-radius: 0.625rem;
-                border: 0.0625rem dashed #e4c292;
-                img{
+                border-radius: .25rem;
+                // border: 0.0625rem dashed #e4c292;
+                overflow: hidden;
+                .img{
                     width: 100%;
                     height: 100%;
                 }

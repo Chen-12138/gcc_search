@@ -11,10 +11,17 @@
     </header>
     <main>
       <div class="recommand">
-        <div class="photo">图</div>
+        <div class="photo"><img src="@/assets/images/盘子1.png" alt="" /></div>
         <article>
-          <h1>彩笔————</h1>
-          <h2>广彩——</h2>
+          <h1>
+            "彩筆為針，丹青作線，縱橫交織針針見
+            不需緞錦繡春圖，春花飛上銀瓷面。"
+          </h1>
+          <h2>
+            广彩所用色料不拘一格，有古彩、粉彩、琅彩、新彩
+            和自制与兼用的等等。所用色料有厚的、薄的、透明的、
+            不透明的、半透明的、光亮的、哑光的。
+          </h2>
         </article>
       </div>
       <section>
@@ -26,12 +33,16 @@
           v-for="list in sortItem"
           :key="list.key"
         >
-          <div class="item-wrapper" >
-            <div class="sort-item" v-for="item in list"  :key="item.key">
+          <div class="item-wrapper">
+            <div
+              class="sort-item"
+              v-for="item in list"
+              :key="item.key"
+              @click="go(item)"
+            >
               <img src="@/assets/images/bk.png" alt />
-              <p>{{item}}</p>
+              <p>{{ item }}</p>
             </div>
-            <img src="@/assets/images/bk.png" alt />
           </div>
           <div class="clip-bar"></div>
         </div>
@@ -47,23 +58,31 @@ export default {
     return {
       sortItem: [
         ["瓶", "盘", "碟", "瓷"],
-        ["瓶", "盘", "碟", "瓷"],
-        ["瓶", "盘", "碟", "瓷"],
+        ["杯", "蛊", "壶", "罐"],
+        ["盆", "尊", "碟", "瓷"],
       ],
     };
   },
   components: {},
   mounted() {},
-  methods: {},
+  methods: {
+    go(name) {
+      this.$router.push({
+        name: "搜索结果",
+        query: {
+          keyword: name,
+        },
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 #collection {
   background-image: url("../../assets/images/background/home.jpg");
-  height: 100vh;
   color: white;
-  font-size:1rem;
+  font-size: 1rem;
   header {
     $height: 2.5rem;
     margin: 1rem auto 0.5rem auto;
@@ -116,12 +135,14 @@ export default {
     .recommand {
       display: flex;
       margin: 1rem 1rem 1.5rem 1rem;
-      padding-top:1rem;
+      padding-top: 1rem;
       .photo {
-        width: 10.75rem;
-        height: 10.75rem;
-        border-radius: 0.625rem;
-        background: rgba(197, 123, 107, 0.8);
+        img {
+          width: 10.75rem;
+          object-fit: cover;
+          background: rgba(197, 123, 107, 0.8);
+          border-radius: 0.625rem;
+        }
       }
       h1,
       h2 {
@@ -131,6 +152,7 @@ export default {
       }
       h1 {
         font-size: 0.9375rem;
+        margin-bottom:max(0.625rem, 1vh);
       }
       h2 {
         font-size: 0.75rem;
@@ -138,7 +160,7 @@ export default {
     }
     section {
       .sort-header {
-        margin-bottom:1.4375rem;
+        margin-bottom: 1.4375rem;
         text-align: left;
         display: flex;
         align-items: center;
@@ -169,7 +191,7 @@ export default {
             align-items: center;
 
             p {
-            
+              font-size: 1rem;
               width: 3.75rem;
               height: 2rem;
               line-height: 1.875rem;
@@ -181,11 +203,11 @@ export default {
 
         .clip-bar {
           width: 100%;
-          height: 0.8125rem;
-          // background: url("../../assets/images/bk-2.png");
-          background: rgba(253, 253, 253, 0.7);
-          margin-top:0.6875rem;
-          margin-bottom:0.4375rem;
+          height: 1.3rem;
+          // background-image:url("../../assets/images/fenge.png");
+          background-size: contain;
+          margin-top: 0.6875rem;
+          margin-bottom: 0.4375rem;
         }
       }
     }
