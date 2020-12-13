@@ -88,8 +88,8 @@ export default {
     return {
       userInfo: {
         headPortrait: "",
-        id: "a1163675107",
-        accounts: "某时橙",
+        id: "用户",
+        accounts: "为定义用户名",
       },
       FootData: [],
       footPage: 1,
@@ -123,6 +123,9 @@ export default {
         },
       },
     });
+    let userInfo=JSON.parse(sessionStorage.getItem('user'))
+    this.userInfo.accounts=userInfo.email;
+    this.userInfo.id='用户'+userInfo.email.slice(0,3)
   },
   methods: {
     link: function (data) {
