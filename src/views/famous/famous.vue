@@ -28,8 +28,8 @@
           </div>
           <div class="main">
             <p>{{ item.name }}</p>
-            <p>身份:{{ item.identify }}</p>
-            <p>简介:{{ item.introduction }}</p>
+            <p><span>身份</span> :{{ item.identify }}</p>
+            <p><span>简介</span> :{{ item.introduction }}</p>
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@ export default {
 #famous {
   background-image: url("../../assets/images/background/famous.jpg");
   background-size: contain;
-  min-height: 300vh;
+  min-height: 100vh;
   header {
     $height: 40px;
     margin: 1rem auto 0.5rem auto;
@@ -130,24 +130,24 @@ export default {
     width: calc(100% - 3rem);
     .vedio-box {
       img {
-        margin: 10px auto;
-        width: 25px;
+        margin: 0.625rem auto;
+        width: 1.5625rem;
         object-fit: cover;
       }
     }
     .recommend {
       width:100%;
-      height: 36px;
+      height: 2.25rem;
       opacity: 0.85;
       background: rgba(156, 74, 58);
-      border-radius: 5px;
-      margin: max(3vh, 10px) auto;
+      border-radius: 0.3125rem;
+      margin: max(3vh, 0.625rem) auto;
       overflow: hidden;
       transition: 0.5s;
       .open-btn {
         font-size: 1rem;
-        margin-left: 10px;
-        margin-top: 10px;
+        margin-left: 0.625rem;
+        margin-top: 0.625rem;
         height: 1rem;
         text-align: left;
         color: white;
@@ -156,22 +156,29 @@ export default {
         display: flex;
         .head {
           img {
-            width: 142px;
-            height: 142px;
+            width: 8.875rem;
+            height: 8.875rem;
             object-fit: cover;
-            margin: 16px auto 45px 9px;
+            margin: 1rem auto 2.8125rem 0.5625rem;
           }
         }
         .main {
           text-align: left;
           height: fit-content;
+          
           p {
-            margin: 10px 5px 0px 5px;
+            color: rgba(255, 255, 255,0.9);
+            margin: 0.625rem 0.3125rem 0rem 0.3125rem;
             &:nth-child(1) {
+                   color:white;
               font-size: 1.3rem;
             }
             &:nth-of-type(n + 2) {
               font-size: 0.8rem;
+            }
+            span{
+              color:white;
+              font-size:1rem;
             }
           }
         }

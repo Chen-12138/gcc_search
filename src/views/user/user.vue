@@ -33,10 +33,10 @@
         <div class="swiper-wrapper">
           <div
             class="swiper-slide"
-            v-for="item in collectionData.itemData[collectionData.index]"
+            v-for="(item,index) in collectionData.itemData[collectionData.index]"
             :key="item.key"
           >
-            <img :src="item.imgUrl" />
+            <img :src="item.imgUrl" @click="link(collectionData.itemData[collectionData.index][index])" />
           </div>
           <p v-if="collectionData.itemData[collectionData.index].length==0">这里还空空如也，甚至生了草</p>
         </div>
@@ -55,7 +55,7 @@
               <th>所属项目</th>
               <th>访问时间</th>
             </tr>
-            <tr v-for="item in FootData" :key="item.key">
+            <tr v-for="(item,index) in FootData" :key="item.key" @click="link(FootData[index])">
               <td>{{item.name}}</td>
               <td>{{item.project}}</td>
               <td>{{item.date}}</td>
@@ -70,6 +70,7 @@
 <script>
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
+import { linkTo } from "@/utils/jump.js";
 export default {
   name: "",
   data() {
@@ -86,8 +87,8 @@ export default {
       total: null,
       collectionData: {
         itemData: [[], [], []],
-        page: [0, 0, 0],
-        index: 0,
+        page: [0, 0, 0], //标记第几页
+        index: 0, //对应三种收藏中的一种
       },
     };
   },
@@ -113,6 +114,11 @@ export default {
 
   },
   methods: {
+    link: function(data) {
+      linkTo.call(this, data.type, {
+        id: data.id
+      });
+    },
     choiceCollection(e) {
       let r = null;
       if (e.target.className) {
@@ -275,6 +281,7 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 0.625rem;
       }
     }
   }
@@ -290,6 +297,7 @@ export default {
       align-items: center;
       img {
         margin-right: max(0.625rem, 1vw);
+            margin-left: max(0.5rem, 1vw);
         width:1.25rem;
         height:1.3125rem;
       }

@@ -27,7 +27,7 @@
           :key="list.key"
         >
           <div class="item-wrapper" >
-            <div class="sort-item" v-for="item in list"  :key="item.key">
+            <div class="sort-item" v-for="item in list"  :key="item.key" @click="go(item)">
               <img src="@/assets/images/bk.png" alt />
               <p>{{item}}</p>
             </div>
@@ -46,14 +46,23 @@ export default {
     return {
       sortItem: [
         ["瓶", "盘", "碟", "瓷"],
-        ["瓶", "盘", "碟", "瓷"],
-        ["瓶", "盘", "碟", "瓷"],
+        ["杯", "蛊", "壶", "罐"],
+        ["盆", "尊", "碟", "瓷"],
       ],
     };
   },
   components: {},
   mounted() {},
-  methods: {},
+  methods: {
+     go(name) {
+      this.$router.push({
+        name: "搜索结果",
+        query: {
+          keyword: name,
+        },
+      });
+    },
+  },
 };
 </script>
 

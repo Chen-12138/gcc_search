@@ -69,7 +69,16 @@ export default {
   },
   components: {},
   mounted() {},
-  methods: {},
+  methods: {
+     go(name) {
+      this.$router.push({
+        name: "搜索结果",
+        query: {
+          keyword: name,
+        },
+      });
+    },
+  },
 };
 </script>
 
@@ -79,7 +88,9 @@ export default {
   height: 100vh;
   color: white;
   main {
-    background: rgba(255, 60, 0, 0.3);
+    background: rgba(182, 71, 53, 0.3);
+    border-radius: 10px;
+     padding:0 max(1vw,0.5rem);
     .item {
       display: flex;
       align-items: center;

@@ -4,6 +4,7 @@
       <div class="menu" @click="link" v-if="!isLogin">
         <div class="menu-icon">
           <i class="fa fa-align-justify" aria-hidden="true"></i>
+          <img src="@/assets/images/qr.png" v-if="isQr">
         </div>
       </div>
       <div class="image-container">
@@ -23,7 +24,7 @@
           <i class="fa fa-search" aria-hidden="true"></i
         ></router-link>
 
-        <router-link :to="{ path: 'user' }"
+        <router-link :to="{ name:'用户中心' }"
           ><i class="fa fa-user" aria-hidden="true"></i
         ></router-link>
       </div>
@@ -78,6 +79,7 @@ export default {
           this.colorStyle = key + "_header";
         }
       }
+      this.isQr=false;
       for (const [key, list] of Object.entries(setting.qrCode)) {
         if (list.find((res) => res == name)) {
           this.isQr = true;
@@ -97,7 +99,7 @@ export default {
 }
 #header {
   width: 100%;
-  height: 62px;
+  height: 3.875rem;
   padding: 0 1.8rem;
   font-size: 1.5rem;
   position: relative;
@@ -110,8 +112,17 @@ export default {
     display: flex;
     align-items: flex-end;
     .menu {
-      width: 60px;
+      width: 3.75rem;
       text-align: left;
+      .menu-icon{
+        display: flex;
+        justify-content: space-between;
+        align-self:center;
+        img{
+          width:1.5rem;
+          object-fit: cover;
+        }
+      }
     }
     .image-container {
       display: flex;
@@ -119,15 +130,15 @@ export default {
       flex-direction: column;
       align-items: center;
       img {
-        width: 45px;
-        height: 43px;
+        width: 2.8125rem;
+        height: 2.6875rem;
         object-fit: cover;
       }
     }
     .main-container {
       display: flex;
       justify-content: space-between;
-      width: 60px;
+      width: 3.75rem;
     }
   }
   p {
