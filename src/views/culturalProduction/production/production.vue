@@ -24,7 +24,7 @@
     </div>
     <div class="production_wrap">
         <div class="star">
-            <span>收藏</span>
+            <p>收藏</p>
             <i v-if="!likeStatus" @click="collect" class="fa fa-star-o" aria-hidden="true"></i>
             <i v-else @click="collect" class="fa fa-star" aria-hidden="true"></i>
         </div>
@@ -266,15 +266,22 @@ export default {
             position: absolute;
             left: 0.375rem;
             padding-right: 0.3125rem;
+            padding-left: 0.3125rem;
             padding-top: 0.1875rem;
             padding-bottom: 0.375rem;
-            font-size: 0.3125rem;
+            font-size: 0.6rem;
             color:#eec4b2;
-            width: 1.5rem;
+            // width: 1.25rem;
             height: 3.5rem;
             border: 0.0625rem solid#eec4b2;
             border-radius: 0.3125rem;
             text-align: right;
+            display: flex;
+            flex-direction: column;
+            p{
+                width: 0.5rem;
+                margin-bottom: .3rem;
+            }
             .fa-star-o{
                 margin-bottom: 0.25rem;
                 color: #eec4b2;
