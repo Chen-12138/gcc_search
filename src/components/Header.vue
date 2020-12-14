@@ -68,7 +68,7 @@ export default {
       let setting = {
         color: {
           black: ["名家大师", "login", "学术", "用户中心"],
-          white: ["首页", "藏品", "历史", "探索", "详情页"],
+          white: ["首页", "藏品", "历史", "探索", "详情页", "文创产品", "游戏"],
         },
         qrCode: {
           show: ["首页"],
