@@ -141,7 +141,8 @@ export default {
       opacity: 0.85;
       background: rgba(156, 74, 58);
       border-radius: 0.3125rem;
-      margin: max(3vh, 0.625rem) auto;
+      margin: 0.625rem auto;
+      // margin: max(3vh, 0.625rem) auto;
       overflow: hidden;
       transition: 0.5s;
       .open-btn {

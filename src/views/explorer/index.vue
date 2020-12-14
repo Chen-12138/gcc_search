@@ -103,7 +103,9 @@ export default {
   main {
     background: rgba(182, 71, 53, 0.3);
     border-radius: 10px;
-    padding: 0 max(1vw, 0.5rem);
+    padding: 0 0.5rem;
+    // padding: 0 max(1vw, 0.5rem);
+
     .item {
       display: flex;
       align-items: center;

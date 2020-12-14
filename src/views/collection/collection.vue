@@ -148,11 +148,13 @@ export default {
       h2 {
         text-align: left;
         color: rgba(253, 253, 253, 0.7);
-        margin-left: max(0.625rem, 4vw);
+        margin-left:0.625rem;
+        // margin-left: max(0.625rem, 4vw);
       }
       h1 {
         font-size: 0.9375rem;
-        margin-bottom:max(0.625rem, 1vh);
+         margin-bottom:0.625rem;
+        // margin-bottom:max(0.625rem, 1vh);
       }
       h2 {
         font-size: 0.75rem;
@@ -170,7 +172,8 @@ export default {
         }
         p {
           font-size: 1.2rem;
-          margin-left: max(5px, 2vw);
+          margin-left:5px;
+          // margin-left: max(5px, 2vw);
         }
       }
       .sort-item-container {

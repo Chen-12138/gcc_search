@@ -119,6 +119,9 @@ export default {
                 "token",
                 JSON.stringify(e.headers.authorization)
               );
+              window.localStorage.setItem(
+              "user", JSON.stringify(user)
+              );
               window.sessionStorage.setItem("user", JSON.stringify(user));
               this.setUser(user);
               this.$router.push({ name: "首页" });

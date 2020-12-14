@@ -89,7 +89,7 @@ export default {
       userInfo: {
         headPortrait: "",
         id: "用户",
-        accounts: "为定义用户名",
+        accounts: "未定义用户名",
       },
       FootData: [],
       footPage: 1,
@@ -123,9 +123,11 @@ export default {
         },
       },
     });
-    let userInfo=JSON.parse(sessionStorage.getItem('user'))
-    this.userInfo.accounts=userInfo.email;
-    this.userInfo.id='用户'+userInfo.email.slice(0,3)
+    let userInfo = JSON.parse(sessionStorage.getItem("user")) ||JSON.parse(localStorage.getItem("user"));
+    if (userInfo) {
+      this.userInfo.accounts = userInfo.email;
+      this.userInfo.id = "用户" + userInfo.email.slice(0, 3);
+    }
   },
   methods: {
     link: function (data) {
@@ -164,6 +166,7 @@ export default {
       })
         .then((res) => {
           let data = res.data.data;
+          console.log(data);
           for (const item of data) {
             this.collectionData.itemData[index].push({
               imgUrl: item.photo,
@@ -231,11 +234,13 @@ export default {
     }
     .main-info {
       text-align: left;
-      margin-left: max(0.3125rem, 5vw);
+      margin-left: 0.3125rem;
+      // margin-left: max(0.3125rem, 5vw);
       .info-item {
         font-size: 0.8rem;
         padding: 0.25rem 0.5rem;
-        margin-bottom: max(0.3125rem, 1vh);
+        margin-bottom: 0.3125rem;
+        // margin-bottom: max(0.3125rem, 1vh);
         min-width: 9.375rem;
         background: rgba(232, 231, 220, 1);
         border-radius: 1rem;
@@ -310,8 +315,8 @@ export default {
       padding-bottom: 0.1875rem;
       align-items: center;
       img {
-        margin-right: max(0.625rem, 1vw);
-        margin-left: max(0.5rem, 1vw);
+        margin-right: 0.625rem;
+        margin-left: 0.5rem;
         width: 1.25rem;
         height: 1.3125rem;
       }
