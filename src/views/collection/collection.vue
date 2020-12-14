@@ -130,8 +130,10 @@ export default {
     }
   }
   main {
-    background: rgba(255, 60, 0, 0.3);
-
+    background-image: linear-gradient(
+      rgba(161, 35, 31, 0.2),
+      rgba(161, 35, 31, 0.5)
+    );
     .recommand {
       display: flex;
       margin: 1rem 1rem 1.5rem 1rem;
@@ -148,12 +150,12 @@ export default {
       h2 {
         text-align: left;
         color: rgba(253, 253, 253, 0.7);
-        margin-left:0.625rem;
+        margin-left: 0.625rem;
         // margin-left: max(0.625rem, 4vw);
       }
       h1 {
         font-size: 0.9375rem;
-         margin-bottom:0.625rem;
+        margin-bottom: 0.625rem;
         // margin-bottom:max(0.625rem, 1vh);
       }
       h2 {
@@ -172,7 +174,7 @@ export default {
         }
         p {
           font-size: 1.2rem;
-          margin-left:5px;
+          margin-left: 5px;
           // margin-left: max(5px, 2vw);
         }
       }
