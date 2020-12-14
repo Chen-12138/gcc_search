@@ -165,7 +165,10 @@ export default {
                 outline: none;
                 background-color: transparent;
                 font-size: 0.8125rem;
-                color: #F9E3D7
+                color: #F9E3D7;
+                text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
             }
         }
     }

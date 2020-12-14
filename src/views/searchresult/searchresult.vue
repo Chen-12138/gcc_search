@@ -281,13 +281,16 @@ export default {
             }
             input{
                 padding-left: 1rem;
-                width: 5.125rem;
+                width: 5.25rem;
                 height: 0.9375rem;
                 background: transparent;
                 border-radius: 0.625rem;
                 border: 0.0625rem solid #edcab2;
                 font-size: 0.625rem;
                 color:  #f9e3d7;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
             }
         }
         .tags{
