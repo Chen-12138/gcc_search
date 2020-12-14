@@ -39,7 +39,7 @@
       v-if="!showPwd"
       type="password"
       leftIcon="fa fa-lock"
-      rightIcon="fa fa-eye"
+      rightIcon="fa fa-eye-slash"
       label="密码"
       placeholder="请输入密码"
       :tip="checkPsw.status"
