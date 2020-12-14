@@ -49,7 +49,9 @@ Vue.directive('hightlight', {
 })
 router.beforeEach((to, from, next) => {
   //以下要替换成可持久存储的token才行,不然用户一刷新页面就要重新登陆(store随页面刷新而重置)
-  if (window.localStorage.getItem("token") || getToken()) {
+  let userInfo = JSON.parse(sessionStorage.getItem("user")) || JSON.parse(localStorage.getItem("user"));
+  let userToken = JSON.parse(window.localStorage.getItem("token")) || getToken();
+  if (userInfo && userToken) {
     if (to.path === '/login') {
       //登录状态下 访问login.vue页面 会跳到index.vue
       next({ path: '/home' });

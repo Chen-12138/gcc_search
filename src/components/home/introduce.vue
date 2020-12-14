@@ -41,7 +41,7 @@
     border-radius: 1.25rem;
     width: 95%;
     line-height: 1.5625rem;
-    font-size: 1.125rem;
+    font-size: 0.9375rem;
     color: #ecece3;
     background-image: linear-gradient(
       rgb(161, 35, 31, 0.2),

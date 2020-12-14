@@ -138,7 +138,7 @@ export default {
       .contentTitle {
         width: 80%;
         color: #edcbbd;
-        font-size: 1.0625rem;
+        font-size: 0.9375rem;
         overflow: hidden;
         white-space: normal;
         word-break: break-all;

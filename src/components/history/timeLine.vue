@@ -140,7 +140,7 @@ export default {
       margin-top: 9.375rem;
       width: 100%;
       line-height: 1.5625rem;
-      font-size: 1.125rem;
+      font-size: 0.9375rem;
       color: #ecece3;
       h2 {
         margin: 0.9375rem 0;
