@@ -38,6 +38,9 @@ export default {
 			default: 3,
 		}
 	},
+	mounted(){
+		console.log(this.currentPage)
+	},
 	// 如何计算总页数
 	// 总页数目是随着后台数据的变化而变化的所以需要计算属性，实时计算
 	computed: {

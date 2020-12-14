@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-    <Pagination :total="total" :display="pageSize" :current="page" @pagechange="pagechange" :pagegroup=3></Pagination>
+    <Pagination :total="total" :display="pageSize" :currentPage="page" @pagechange="pagechange" :pagegroup=3></Pagination>
   </div>
 </template>
 

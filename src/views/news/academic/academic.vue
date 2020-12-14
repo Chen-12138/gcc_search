@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <Pagination :total="total" :display="pageSize" :current="page" @pagechange="pagechange" :pagegroup=5></Pagination>
+        <Pagination :total="total" :display="pageSize" :currentPage="page" @pagechange="pagechange" :pagegroup=5></Pagination>
   </div>
 </template>
 
@@ -89,6 +89,7 @@ export default {
             this.page = parseInt((this.$route.query.id-1)/this.pageSize) + 1
             this.id = this.$route.query.id
         }
+        // console.log('父组件')
         await this.getAcademic();
         scrollTo()
     },

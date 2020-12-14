@@ -4,7 +4,7 @@
         <div class="back" @click="handleBack">&lt;</div>
         <div class="searchInput">
             <i class="fa fa-search" aria-hidden="true"></i>
-            <input type="text" v-model="keyword" v-on:keyup.enter="search">
+            <input type="text" v-model="keyword" v-on:keyup.enter="search" placeholder="请输入关键词搜索">
         </div>
     </div>
     <div class="match">
@@ -236,5 +236,25 @@ export default {
         }
     }
 }
+// placeholder的样式
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:   #F9E3D7 !important;
 
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #F9E3D7 !important;
+
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:   #F9E3D7 !important;
+
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:  #F9E3D7 !important;
+
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color:   #F9E3D7 !important;
+
+}
 </style>
