@@ -67,7 +67,7 @@ export default {
       let name = val.name;
       let setting = {
         color: {
-          black: ["名家大师", "login", "用户中心"],
+          black: ["名家大师", "login", "学术", "用户中心"],
           white: ["首页", "藏品", "历史", "探索", "详情页"],
         },
         qrCode: {
