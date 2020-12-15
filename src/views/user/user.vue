@@ -145,8 +145,7 @@ export default {
           this.collectionData.index = 0;
           break;
         case "head-1":
-          this.collectionData.index = 1;
-          break;
+          this.collectionData.index = 1;1
         case "head-2":
           this.collectionData.index = 2;
           break;

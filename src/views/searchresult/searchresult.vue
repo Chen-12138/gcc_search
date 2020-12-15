@@ -372,6 +372,9 @@ export default {
                     .img{
                         width: 100%;
                         height: 100%;
+                        ::v-deep img{
+                            object-fit: cover;
+                        }
                     }
                 }
                 .text{

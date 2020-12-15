@@ -52,10 +52,11 @@ main{
 .page{
   min-height: 100vh;
   padding-top:3.875rem;
+  padding-bottom:2rem;
   position: absolute;
   top:0;
   width: 100%;
   z-index: 1;
-  background-position: inherit;
+  background-position:center;
   background-size: cover;
 }

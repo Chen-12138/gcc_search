@@ -53,13 +53,4 @@ export default {
   flex-direction: column;
   text-align: center;
 }
-.page{
-  padding-top:62px;
-  position: absolute;
-  top:0;
-  width: 100%;
-  z-index: 1;
-  background-position: center;
-  background-size: cover;
-}
 </style>
