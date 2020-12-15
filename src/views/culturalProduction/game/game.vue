@@ -399,7 +399,7 @@ export default {
                         // border: 0.0625rem dashed #fff;
                         border-radius: .5rem;
                         overflow: hidden;
-                        img{
+                        .img{
                             width: 100%;
                             height: 100%;
                         }

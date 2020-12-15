@@ -205,7 +205,7 @@ export default {
         images:[
           ...this.srcList
         ],
-        closeable: true
+        closeable:true
       })
     },
     // 返回上一页
@@ -289,14 +289,14 @@ export default {
       }
       .star{
           text-align: right;
-          margin-right: 0.5rem;
+          margin-right: 8px;
           .fa-star-o{
               color: #e6e6e6;
-              font-size: 1.375rem;
+              font-size: 22px;
           }
           .fa-star{
               color: #fbae17;
-              font-size: 1.375rem;
+              font-size: 22px;
           }
       }
     }
