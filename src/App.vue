@@ -39,7 +39,10 @@ import Header from "@/components/Header";
 export default {
     components:{
         Header
-    }
+    },
+    created() {
+      this.$router.push({path:'/login'})
+    },
 }
 </script>
 <style lang="scss">
