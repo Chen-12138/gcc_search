@@ -102,7 +102,9 @@ export default {
         duration: 1500,
       });
     },
-    async login() {
+    async login(event) {
+      event.stopPropagation();
+      event.preventDefault();
       this.$refs.userName.bluring();
       this.$refs.password.bluring();
       if (!this.checkPsw && !this.checkUserName) {
@@ -119,9 +121,7 @@ export default {
                 "token",
                 JSON.stringify(e.headers.authorization)
               );
-              window.localStorage.setItem(
-              "user", JSON.stringify(user)
-              );
+              window.localStorage.setItem("user", JSON.stringify(user));
               window.sessionStorage.setItem("user", JSON.stringify(user));
               this.setUser(user);
               this.$router.push({ name: "首页" });
@@ -179,11 +179,11 @@ export default {
     }
     .headImg {
       background-image: url(../../assets/images/bk.png);
-      background-size: auto, 0.9375rem;
+      background-size: 1.5625rem, 0.9375rem;
       background-position: center;
       background-repeat: no-repeat;
-      width: 2.8125rem;
-      height: 1.125rem;
+      width: 1.5625rem;
+      height: 0.9375rem;
     }
   }
   .plain {
