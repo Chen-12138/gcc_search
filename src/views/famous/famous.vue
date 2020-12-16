@@ -1,14 +1,26 @@
 <template>
   <div id="famous">
-    <header>
-      <img src="@/assets/images/角.png" alt />
-      <img src="@/assets/images/角.png" alt />
-      <img src="@/assets/images/角.png" alt />
-      <img src="@/assets/images/角.png" alt />
-      <img src="@/assets/images/bk.png" alt />
-      <img src="@/assets/images/bk.png" alt />
-      <p>名家大师</p>
-    </header>
+     <div class="title">
+          <img src="../../assets/images/bk.png" alt="" class="border_img"/>
+      <div class="left">
+        <div class="left_top">
+          <img src="@/assets/images/角.png" alt="" class="imgBox" />
+        </div>
+        <div class="left_bottom">
+          <img src="@/assets/images/角.png" alt="" class="imgBox" />
+        </div>
+      </div>
+      <div class="content">名家大师</div>
+      <div class="right">
+        <div class="right_top">
+          <img src="@/assets/images/角.png" alt="" class="imgBox" />
+        </div>
+        <div class="right_bottom">
+          <img src="@/assets/images/角.png" alt="" class="imgBox" />
+        </div>
+      </div>
+      <img src="../../assets/images/bk.png" alt="" class="border_img"/>
+    </div>
 
     <div
       class="videoContainer"
@@ -68,7 +80,7 @@ export default {
       if (!this.famous[i].open) {
         r.style.height = "2rem";
       } else {
-        r.style.height = mh + 46 + "px";
+        r.style.height = (mh + 46)/16 + "rem";
       }
     },
   },
@@ -80,49 +92,44 @@ export default {
   background-image: url("../../assets/images/background/famous.jpg");
   background-size: contain;
   min-height: 100vh;
-  header {
-    $height: 40px;
-    margin: 1rem auto 0.5rem auto;
-    position: relative;
-    width: 130px;
-    height: $height;
-    line-height: $height;
-    img {
-      position: absolute;
-      width: 20px;
+  .title {
+    width: 16rem;
+    margin: 1.25rem auto 0.625rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .border_img {
+      width: 1.25rem;
       object-fit: cover;
-      &:nth-child(1) {
-        top: 0;
-        left: 0;
-        transform: rotateZ(-90deg);
+      background-size: 1.5625rem 0.9375rem;
+      background-position: center;
+      margin: 0 0.9375rem;
+    }
+    .imgBox {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    .left {
+      .left_top {
+        transform: rotate(-90deg);
       }
-      &:nth-child(2) {
-        top: 0;
-        right: 0;
-      }
-      &:nth-child(3) {
-        bottom: 0;
-        left: 0;
-        transform: rotateZ(180deg);
-      }
-      &:nth-child(4) {
-        bottom: 0;
-        right: 0;
-        transform: rotateZ(90deg);
-      }
-      &:nth-child(5) {
-        left: 0;
-        top: 50%;
-        transform: translate(calc(-100% - 10px), -50%);
-      }
-      &:nth-child(6) {
-        right: 0;
-        top: 50%;
-        transform: translate(calc(100% + 10px), -50%);
+      .left_bottom {
+        transform: rotate(-180deg);
       }
     }
-    p {
-      font-size: 1.4rem;
+    .right {
+      .right_top {
+        transform: rotate(0deg);
+      }
+      .right_bottom {
+        transform: rotate(90deg);
+      }
+    }
+    .content {
+      line-height: 1.5625rem;
+      font-size: 1.5rem;
+      color:rgb(96, 77, 46);
+      font-weight: 500;
     }
   }
   .videoContainer {

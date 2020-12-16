@@ -1,7 +1,7 @@
 <template>
   <div class="history">
     <div class="title">
-      <div class="border_img"></div>
+          <img src="../../assets/images/bk.png" alt="" class="border_img"/>
       <div class="left">
         <div class="left_top">
           <img src="@/assets/images/角.png" alt="" class="imgBox" />
@@ -19,7 +19,7 @@
           <img src="@/assets/images/角.png" alt="" class="imgBox" />
         </div>
       </div>
-      <div class="border_img"></div>
+    <img src="../../assets/images/bk.png" alt="" class="border_img"/>
     </div>
     <div class="body">
       <p style="text-indent: 1em">
@@ -79,13 +79,10 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .border_img {
-      width: 1.5625rem;
-      height: 0.9375rem;
-      background-image: url(../../assets/images/bk.png);
-      background-size: 1.5625rem 0.9375rem;
-      background-position: center;
-      margin: 0 0.9375rem;
+     .border_img {
+      width: 1.25rem;
+      object-fit: cover;
+      margin: 0 0.9rem;
     }
     .imgBox {
       width: 1.25rem;

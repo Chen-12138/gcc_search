@@ -29,7 +29,7 @@
         ></router-link>
       </div>
     </div>
-    <p>Catonese color culture</p>
+    <p>Cantonese color culture</p>
   </header>
 </template>
 

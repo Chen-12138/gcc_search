@@ -1,14 +1,26 @@
 <template>
   <div id="collection">
-    <header>
-      <img src="@/assets/images/角.png" alt />
-      <img src="@/assets/images/角.png" alt />
-      <img src="@/assets/images/角.png" alt />
-      <img src="@/assets/images/角.png" alt />
-      <img src="@/assets/images/bk.png" alt />
-      <img src="@/assets/images/bk.png" alt />
-      <p>藏品</p>
-    </header>
+   <div class="title">
+         <img src="../../assets/images/bk.png" alt="" class="border_img"/>
+      <div class="left">
+        <div class="left_top">
+          <img src="@/assets/images/角.png" alt="" class="imgBox" />
+        </div>
+        <div class="left_bottom">
+          <img src="@/assets/images/角.png" alt="" class="imgBox" />
+        </div>
+      </div>
+      <div class="content">藏品</div>
+      <div class="right">
+        <div class="right_top">
+          <img src="@/assets/images/角.png" alt="" class="imgBox" />
+        </div>
+        <div class="right_bottom">
+          <img src="@/assets/images/角.png" alt="" class="imgBox" />
+        </div>
+      </div>
+       <img src="../../assets/images/bk.png" alt="" class="border_img"/>
+    </div>
     <main>
       <div class="recommand">
         <div class="photo"><img src="@/assets/images/盘子1.png" alt="" /></div>
@@ -83,50 +95,42 @@ export default {
   background-image: url("../../assets/images/background/home.jpg");
   color: white;
   font-size: 1rem;
-  header {
-    $height: 2.5rem;
-    margin: 1rem auto 0.5rem auto;
-    width: fit-content;
-    position: relative;
-    width: 110px;
-    height: $height;
-    line-height: $height;
-    img {
-      position: absolute;
+ .title {
+    width: 55%;
+    margin: 1.25rem auto 0.625rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     .border_img {
       width: 1.25rem;
       object-fit: cover;
-      &:nth-child(1) {
-        top: 0;
-        left: 0;
-        transform: rotateZ(-90deg);
+      margin: 0 0.9rem;
+    }
+    .imgBox {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    .left {
+      .left_top {
+        transform: rotate(-90deg);
       }
-      &:nth-child(2) {
-        top: 0;
-        right: 0;
-      }
-      &:nth-child(3) {
-        bottom: 0;
-        left: 0;
-        transform: rotateZ(180deg);
-      }
-      &:nth-child(4) {
-        bottom: 0;
-        right: 0;
-        transform: rotateZ(90deg);
-      }
-      &:nth-child(5) {
-        left: 0;
-        top: 50%;
-        transform: translate(calc(-100% - 0.625rem), -50%);
-      }
-      &:nth-child(6) {
-        right: 0;
-        top: 50%;
-        transform: translate(calc(100% + 0.625rem), -50%);
+      .left_bottom {
+        transform: rotate(-180deg);
       }
     }
-    p {
-      font-size: 1.4rem;
+    .right {
+      .right_top {
+        transform: rotate(0deg);
+      }
+      .right_bottom {
+        transform: rotate(90deg);
+      }
+    }
+    .content {
+      line-height: 1.5625rem;
+      font-size: 1.5rem;
+      color: #ecece3;
+      font-weight: 500;
     }
   }
   main {
@@ -141,7 +145,7 @@ export default {
       .photo {
         img {
           width: 10.75rem;
-          object-fit: cover;
+          object-fit: contain;
           background: rgba(197, 123, 107, 0.8);
           border-radius: 0.625rem;
         }
