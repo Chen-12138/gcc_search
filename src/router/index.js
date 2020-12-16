@@ -15,7 +15,7 @@ const routes = [
     component: () => import("@/views/404page.vue"),
   },
   {
-    path: "/",
+    path: "",
     name: "index",
     redirect: "home",
     component: () => import("@/views/index.vue"),
@@ -101,8 +101,6 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
   routes,
 });
 
