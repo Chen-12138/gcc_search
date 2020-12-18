@@ -36,9 +36,9 @@ export default {
       current: 0,
       data: [
         require("../../assets/images/slider1.png"),
-        require("../../assets/images/test.png"),
-        require("../../assets/images/slider1.png"),
-        require("../../assets/images/test.png"),
+        require("../../assets/images/藏品1.png"),
+        require("../../assets/images/游戏翻.png"),
+        require("../../assets/images/slider2.png"),
       ],
     };
   },
@@ -67,7 +67,7 @@ export default {
   z-index: 20;
 }
 .swiperItems {
-  height: 12.5rem;
+  height: 10.625rem;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
