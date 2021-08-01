@@ -4,6 +4,7 @@ module.exports = {
   css: {
     // modules:false,
     // extract:true,
+    publicPath: './',
     sourceMap: false,
     loaderOptions: {
       postcss: {

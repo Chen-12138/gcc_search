@@ -23,6 +23,7 @@ function linkTo(type, query) {
 
 //跳转到当前页面中的锚点
 // beforeUpdate中使用,因为mount获取不到dom,想要在mount中使用，必须用ref来获取dom的...考虑欠佳
+// 其实可以在nextTick中调用，或者用await获取到dom后再操作；
 function scrollTo() {
   let id = router.app.$route.query.id
   let div = document.getElementById(id);

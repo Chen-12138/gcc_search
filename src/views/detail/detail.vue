@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="photo">
-        <van-image :src="detail.photos[0]" class="img" @click="handleImagePreview">
+        <van-image v-if="detail.photos !== undefined" :src="detail.photos[0]" class="img" @click="handleImagePreview">
             <template v-slot:loading style=font-size:1.5rem;>
                 <!-- <van-loading type="spinner" size="20" /> -->
                 加载中...

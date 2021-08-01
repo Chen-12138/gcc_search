@@ -39,7 +39,9 @@ export default {
     data(){
         return{
             keyword:'',
-            resultList:[]
+            resultList:[],
+            // 防抖定时器
+            timer: null
         }
     },
     computed:{
@@ -47,6 +49,7 @@ export default {
     },
     watch:{
         keyword(newVal, oldVal){
+            // 防抖
             if(this.timer){
                 clearTimeout(this.timer)
             }
@@ -56,7 +59,7 @@ export default {
             }
             this.timer = setTimeout(() => {
                 this.getKeywordSearch()
-            }, 100);
+            }, 500);
         }
     },
     methods:{
