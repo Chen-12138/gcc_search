@@ -1,10 +1,10 @@
 const autoprefixer = require('autoprefixer');
 const pxtorem = require('postcss-pxtorem');
 module.exports = {
+  publicPath: './',
   css: {
     // modules:false,
     // extract:true,
-    publicPath: './',
     sourceMap: false,
     loaderOptions: {
       postcss: {
